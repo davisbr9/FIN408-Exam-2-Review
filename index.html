@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FIN 408 Exam 2 Review</title>
+<style>
+:root{--navy:#17365d;--navy2:#244a78;--red:#9e1b32;--gold:#f3c64e;--bg:#f4f6f9;--card:#fff;--text:#20242a;--muted:#5b6474;--green:#18794e;--greenbg:#eaf7f0;--red2:#b42318;--redbg:#fff0ee;--bluebg:#eef4fb;--border:#d8dee8;--shadow:0 8px 24px rgba(25,45,75,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+button,input,select{font:inherit}a{color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#122d50,#254f7f);color:#fff;padding:42px 0 32px}
+.eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;font-weight:700}
+.top h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:.35rem 0 .75rem}
+.top p{max-width:820px;font-size:1.06rem;opacity:.92;margin:0}
+.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);padding:7px 11px;border-radius:999px;font-size:.9rem}
+.nav{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.nav a{white-space:nowrap;text-decoration:none;padding:8px 11px;border-radius:8px;font-weight:700;font-size:.9rem;color:#334155}
+.nav a:hover{background:#eef3f8;color:var(--navy)}
+section{padding:36px 0;scroll-margin-top:62px}
+section.alt{background:#eaeef4}
+h2{font-size:1.7rem;color:var(--navy);margin:0 0 6px}
+h3{color:var(--navy);margin:0 0 9px;font-size:1.08rem}
+h4{margin:14px 0 6px;color:var(--navy2)}
+.lead{color:var(--muted);max-width:860px;margin-top:0}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:19px;box-shadow:var(--shadow);margin-bottom:16px;min-width:0}
+.grid>.card{margin-bottom:0}
+.stat{font-size:1.9rem;font-weight:800;color:var(--navy)}
+.small{font-size:.9rem;color:var(--muted)}
+.mini-label{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+.callout{border-left:5px solid var(--gold);background:#fff8dd;padding:12px 14px;border-radius:8px;margin:12px 0}
+.note{border-left:5px solid #e0a100;background:#fff4d1;padding:10px 14px;border-radius:8px;margin:12px 0}
+.note:before{content:"YOUR NOTE";display:block;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:#8a6100;margin-bottom:2px}
+.trap{border-left:5px solid var(--red2);background:var(--redbg);padding:10px 14px;border-radius:8px;margin:12px 0}
+.trap:before{content:"WATCH OUT";display:block;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:var(--red2);margin-bottom:2px}
+.info{border-left:5px solid #3b82c4;background:var(--bluebg);padding:10px 14px;border-radius:8px;margin:12px 0}
+.formula{font-family:"SFMono-Regular",Consolas,Menlo,monospace;background:#f6f8fb;border:1px solid #dce3ec;border-radius:8px;padding:9px 12px;margin:8px 0;overflow-x:auto;font-weight:650;font-size:.93rem}
+.tablewrap{overflow-x:auto;margin:8px 0}
+.simpletable{border-collapse:collapse;width:100%;font-size:.92rem}
+.simpletable th,.simpletable td{border:1px solid var(--border);padding:7px 9px;text-align:left;vertical-align:top}
+.simpletable th{background:var(--navy);color:#fff;font-weight:700}
+.simpletable tr:nth-child(even) td{background:#fafbfc}
+.simpletable td.num,.simpletable th.num{text-align:right;font-variant-numeric:tabular-nums}
+.simpletable tr.total td{font-weight:800;background:#eef2f7}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tabbtn{border:1px solid var(--border);background:#fff;padding:8px 12px;border-radius:9px;font-weight:750;cursor:pointer;color:#243b57}
+.tabbtn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab{display:none}.tab.active{display:block}
+.steps{counter-reset:step;padding:0;margin:0;list-style:none}
+.steps li{position:relative;padding:0 0 12px 40px}
+.steps li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;background:var(--navy);color:#fff;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800}
+.qtag{font-size:.76rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.answerrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.answerrow input{min-width:170px;max-width:100%;padding:9px 10px;border:1px solid #bfc8d6;border-radius:8px}
+.unit{color:var(--muted);font-size:.9rem}
+select{padding:8px 10px;border:1px solid #bfc8d6;border-radius:8px;background:#fff;max-width:100%}
+.btn{border:0;background:var(--navy);color:#fff;padding:9px 13px;border-radius:8px;font-weight:800;cursor:pointer}
+.btn:hover{background:#0f2847}.btn.secondary{background:#e9eef5;color:#243b57}.btn.secondary:hover{background:#dfe7f1}
+.btn.small{padding:6px 10px;font-size:.85rem}
+.feedback{display:none;margin-top:11px;padding:10px 13px;border-radius:8px;font-weight:600}
+.feedback.good{display:block;background:var(--greenbg);color:var(--green);border:1px solid #bce4ce}
+.feedback.bad{display:block;background:var(--redbg);color:var(--red2);border:1px solid #f4c2bc}
+.feedback.neutral{display:block;background:var(--bluebg);color:#1f4f80;border:1px solid #c8daef}
+.solution{display:none;margin-top:12px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid var(--border)}
+.solution.show{display:block}
+.solution ol{margin:0;padding-left:20px}
+.choice{display:block;margin:8px 0;padding:10px;border:1px solid var(--border);border-radius:8px;cursor:pointer;background:#fff}
+.choice:hover{background:#f8fafc}.choice input{margin-right:8px}
+.choice.right{border-color:#8fd0ad;background:var(--greenbg)}.choice.wrong{border-color:#f0a59b;background:var(--redbg)}
+.quizbar{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}
+.progress{height:10px;background:#e6eaf0;border-radius:999px;overflow:hidden;margin-top:10px}
+.progress>div{height:100%;background:var(--navy);width:0;transition:.25s}
+.scorebox{font-weight:800;color:var(--navy)}
+.ti{background:#15191f;color:#eff4fa;border-radius:12px;padding:14px 16px;font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:.9rem;overflow-x:auto}
+.ti .key{display:inline-block;background:#313a46;border-bottom:3px solid #0c0e11;padding:2px 7px;border-radius:5px;margin:2px;color:#fff}
+.bar{display:grid;grid-template-columns:minmax(130px,220px) 1fr 92px;gap:10px;align-items:center;margin:8px 0;font-size:.92rem}
+.bar .track{height:10px;background:#e6eaf0;border-radius:999px;overflow:hidden}
+.bar .fill{height:100%;border-radius:999px}
+.bar .pct{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.ps-step{border-top:1px solid var(--border);padding-top:12px;margin-top:12px}
+.reveal{display:none;margin-top:10px}.reveal.show{display:block}
+.classify select{min-width:150px}
+.classify tr.ok td{background:var(--greenbg)!important}.classify tr.no td{background:var(--redbg)!important}
+.chart{width:100%;height:auto;display:block}
+.indexcard{background:#fffdf8;border:1px solid #d7cdb7;border-radius:8px;box-shadow:0 6px 18px rgba(65,53,31,.08);padding:16px 18px}
+.indexcard ul{margin:6px 0 0;padding-left:20px}.indexcard li{margin:3px 0}
+.indexcard .grp{font-weight:800;color:var(--red);margin-top:10px;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.footer{padding:28px 0 42px;color:var(--muted);font-size:.9rem}
+.hidden{display:none!important}
+kbd{font-family:inherit;font-weight:700;background:#eef2f7;border:1px solid #cfd8e3;border-radius:5px;padding:0 5px}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}.top{padding-top:30px}.card{padding:15px}.bar{grid-template-columns:1fr 70px}.bar .track{grid-column:1/-1;grid-row:2}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="eyebrow">FIN 408 · Commercial Banking · Exam 2</div>
+<h1>Interest Rate &amp; Liquidity Risk Review</h1>
+<p>Built from your notes, the Chapter 7, 8, 9, and 12 slides, both problem sets, and Bonds.xlsx. Learn the content, walk through the professor's problems, then drill the practice generators and quiz. Your results are tracked so the page can tell you what to review.</p>
+<div class="pillrow"><span class="pill">≈60% quantitative</span><span class="pill">≈40% conceptual</span><span class="pill">Split per your professor</span><span class="pill">TI-84 Plus CE workflows</span><span class="pill">Index card content</span></div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+<a href="#overview">Overview</a><a href="#learn">Learn</a><a href="#problemsets">Problem Sets</a><a href="#calculator">TI-84</a><a href="#practice">Practice</a><a href="#concepts">Concepts</a><a href="#quiz">Quiz</a><a href="#indexcard">Index Card</a>
+</div></nav>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section id="overview"><div class="wrap">
+<h2>What to Prioritize</h2>
+<p class="lead">Your professor says the exam is about 60% quantitative and 40% conceptual. The math is concentrated in three areas, and the problem sets show the exact style to expect.</p>
+<div class="grid g3">
+<div class="card"><div class="mini-label">Priority 1</div><div class="stat">Duration</div><p>Macaulay duration (annual and semiannual), modified duration, price change, dollar duration, duration gap, immunization and rebalancing.</p></div>
+<div class="card"><div class="mini-label">Priority 2</div><div class="stat">Repricing</div><p>Classifying RSAs and RSLs by planning period, cumulative gap, ΔNII with equal and unequal rate changes, gap ratio, gap effect vs. spread effect.</p></div>
+<div class="card"><div class="mini-label">Priority 3</div><div class="stat">Liquidity</div><p>Financing gap and requirement, purchased vs. stored liquidity balance sheets, liquidity index, LCR and NSFR, reading peer ratios.</p></div>
+</div>
+<div class="callout" style="margin-top:16px"><strong>Exam mindset:</strong> name the model before you calculate. Repricing model = book-value effect on <strong>net interest income</strong>. Duration model = market-value effect on <strong>assets, liabilities, and equity</strong>. Liquidity questions = <strong>where does the cash come from</strong>, and what does that do to the balance sheet.</div>
+
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><h3>Your progress</h3><p class="small" style="margin-top:0">First attempts on practice problems, quiz questions, and concept self-checks count here. Saved in this browser only.</p><div id="progressBars"></div><div id="focusNext" class="info hidden"></div><button class="btn secondary small" id="resetProgress">Reset progress</button></div>
+<div class="card"><h3>How to use this page</h3><ol class="steps"><li>Skim <strong>Learn</strong> for the chapter you're weakest in. Yellow boxes are your own notes.</li><li>Work the <strong>Problem Sets</strong> on paper before revealing each step. These match the professor's style.</li><li>Grind <strong>Practice</strong> with your TI-84 until the progress bars are green.</li><li>Take the <strong>Quiz</strong>, then use "Retry missed" until you clear it.</li><li>Copy the <strong>Index Card</strong> content onto your card by hand.</li></ol></div>
+</div>
+</div></section>
+
+<!-- ===================== LEARN ===================== -->
+<section id="learn" class="alt"><div class="wrap">
+<h2>Learn the Content</h2>
+<p class="lead">Organized like your notes: Chapter 7, then Chapter 12, 8, and 9. Yellow boxes are hints you wrote. Red boxes are common traps.</p>
+<div class="tabs" role="tablist">
+<button class="tabbtn active" data-tab="risk">Ch 7: Risk Overview</button>
+<button class="tabbtn" data-tab="liq">Ch 12: Liquidity</button>
+<button class="tabbtn" data-tab="repr">Ch 8: Repricing</button>
+<button class="tabbtn" data-tab="dur">Ch 9: Duration</button>
+</div>
+
+<!-- Ch 7 -->
+<div class="tab active" id="tab-risk">
+<div class="grid g2">
+<div class="card"><h3>Interest rate risk</h3><p>Comes from a mismatch in asset and liability maturities. As rates change, the spread changes, and since value = PV(cash flows), equity is affected.</p><ul><li>Matching maturities is problematic for FIs: it's inconsistent with their asset transformation function.</li><li><b>Refinancing risk:</b> liabilities mature first and must be rolled over at higher rates.</li><li><b>Reinvestment risk:</b> assets mature first and must be reinvested at lower rates.</li><li>Market value risk: asset and liability values move when rates move.</li></ul><div class="note">When interest rates change in the market, it creates volatility in net income because you can't control the interest rates.</div></div>
+<div class="card"><h3>Credit risk</h3><p>Risk that promised cash flows won't be paid in full. Charge-offs were high in the 1980s, most of the 1990s, and the 2000s, and kept growing until late 2008.</p><ul><li><b>Firm-specific credit risk:</b> default risk tied to one borrower's own situation. It can be diversified away.</li><li><b>Systematic credit risk:</b> default risk from economy-wide conditions, like a recession. It can't be diversified away.</li><li>Implications: credit screening and monitoring, diversification, loan sales, reschedulings, good bank/bad bank structures, credit derivatives.</li></ul></div>
+<div class="card"><h3>Liquidity risk</h3><p>A sudden surge in liability withdrawals may force an FI to liquidate assets in a very short time at low prices. It can generate runs, and runs can turn a liquidity problem into a solvency problem.</p><div class="note">This contributed to the Silicon Valley Bank failure in 2023.</div><p class="small">On the asset side, loan requests and borrowers drawing on loan commitments also create liquidity risk.</p></div>
+<div class="card"><h3>Foreign exchange risk</h3><ul><li>An FI may be net long or net short in various currencies.</li><li>Foreign and domestic returns aren't perfectly correlated, and FX rates aren't perfectly correlated across countries ($/€ can rise while $/¥ falls).</li><li>Undiversified foreign exposure creates FX risk.</li><li>Fully hedging by matching foreign assets and liabilities requires matching <b>durations</b>, not just maturities. Otherwise foreign interest rate risk remains.</li></ul></div>
+<div class="card"><h3>Country or sovereign risk</h3><p>A type of credit risk: foreign borrowers can't repay because their government interferes. There's often no usual recourse through the courts.</p><ul><li>Example: Argentina defaulted on $130b of government debt in 2001 and was still asking for payment adjustments in 2018.</li><li>The FI's remaining bargaining chip is its future supply of loans, which is weak if the currency or government is collapsing.</li></ul></div>
+<div class="card"><h3>Market risk</h3><p>Risk from trading assets and liabilities when interest rates, exchange rates, and other asset prices change. Short trading horizons.</p><ul><li>Present whenever an FI holds an open or unhedged long or short position and prices move the wrong way.</li><li>2008-09: FIs were major mortgage buyers; rising rates in the mid-2000s drove defaults; "toxic" assets fell to deeply reduced values.</li><li>Implication: need for controls and for measuring risk exposure.</li></ul></div>
+<div class="card"><h3>Off-balance-sheet risk</h3><p>Risk from contingent assets and liabilities: letters of credit, loan commitments, derivatives. These directly affect future profitability.</p><div class="tablewrap"><table class="simpletable"><tr><th>Table 7-4</th><th class="num">Traditional</th><th class="num">With OBS valued</th></tr><tr><td>Assets (A)</td><td class="num">100</td><td class="num">100</td></tr><tr><td>Contingent assets (CA)</td><td class="num">n/a</td><td class="num">50</td></tr><tr><td>Liabilities (L)</td><td class="num">90</td><td class="num">90</td></tr><tr><td>Contingent liabilities (CL)</td><td class="num">n/a</td><td class="num">55</td></tr><tr class="total"><td>Net worth (E)</td><td class="num">10</td><td class="num">5</td></tr></table></div><p class="small">E = (A + CA) − (L + CL) = 150 − 145 = 5. The contingent liabilities outweigh the contingent assets, so true net worth is half what the balance sheet shows.</p></div>
+<div class="card"><h3>Technology and operational risk</h3><p>Loss from inadequate or failed internal processes, people, and systems, or from external events. Operational risk includes technology risk.</p><ul><li>Examples: Target hack (2013), "ATM cash-out" schemes, the London Whale.</li><li>Innovation: ACH, CHIPS, real-time global connections (e.g., Citigroup). Benefits: economies of scale and scope.</li><li>Not only tech failures: employee fraud and errors count, and losses get magnified by reputation damage.</li></ul></div>
+<div class="card"><h3>FinTech risk</h3><p>Tech-enabled innovation that creates new business models or products with a material effect on financial services. The risk is that FinTech firms take customers and revenue from traditional FIs (e.g., SoFi, Transferwise, Credit Karma). It's broader than technology risk.</p></div>
+<div class="card"><h3>Insolvency risk and how risks interact</h3><p><b>Insolvency (capital adequacy):</b> not enough capital to absorb a sudden drop in asset value relative to liabilities. It's usually the end result of the other risks. Examples: Washington Mutual; "too big to fail" (Citigroup).</p><p><b>Interactions:</b> risks are interdependent (interest rate + credit + OBS; liquidity + interest rate + credit). <b>Discrete risks:</b> war, terrorism, market crashes, theft, malfeasance, changes in regulatory policy.</p></div>
+</div>
+</div>
+
+<!-- Ch 12 -->
+<div class="tab" id="tab-liq">
+<div class="card"><h3>What is liquidity risk?</h3><div class="note">The risk a bank doesn't have easy access to cash when they need it. Banks usually have a lot of illiquid assets (like credit cards or loans).</div><div class="grid g2"><div><h4>Liability side</h4><ul><li>Depositors cash in claims. With low cash, the FI may have to sell assets fast, which can mean a <b>fire sale</b> (selling illiquid assets below market price).</li><li><b>Net deposit drain</b> = withdrawals − additions. Banks need to predict its probability distribution, including seasonality (Christmas, summer).</li><li>Managed by purchased and/or stored liquidity management.</li></ul></div><div><h4>Asset side</h4><ul><li>Loan commitments and credit lines get drawn down. Met by borrowing or using cash.</li><li>Commitments are "dangerously high": unused commitments to cash went from 529% (1994) to 1,015% (2008), then 609% in the crisis.</li><li>Interest rate and market risk can drop investment portfolio values. Tech may add liquidity; herd behavior may reduce it.</li></ul></div></div></div>
+<div class="grid g2">
+<div class="card"><h3>Purchased liquidity management (PLM)</h3><p>Borrow to replace the lost cash: fed funds or repo markets.</p><ul><li>Preserves the asset side; balance sheet size stays the same.</li><li>Borrowed funds cost more than deposits.</li><li>Deposits are insured; borrowed funds aren't necessarily.</li><li>In the crisis, wholesale funding dried up.</li></ul><div class="note">The result of PLM is lower net income because it's a more expensive way to finance.</div></div>
+<div class="card"><h3>Stored liquidity management (SLM)</h3><p>Use cash reserves and sell liquid assets to meet withdrawals. DIs hold excess reserves above Fed requirements.</p><ul><li>Assets shrink.</li><li>Requires holding excess low-rate assets.</li><li>Opportunity cost of excess cash and liquid assets.</li><li>Banks often combine both methods.</li></ul><div class="note">Banks lose out on the opportunity to make more on the spread since they can't make as many loans.</div></div>
+</div>
+<div class="callout">Key terms: <b>purchased</b> liquidity = <b>borrowed funds</b>. <b>Stored</b> liquidity = <b>cash and reserves</b> (and selling liquid securities).</div>
+<div class="card"><h3>How each method hits the balance sheet</h3><p class="small">From the slides: $150M bank, cash 12, other assets 138, deposits 100, borrowed 20, other liabilities 5, equity 25.</p><div class="tablewrap"><table class="simpletable"><tr><th>Event</th><th>Purchased (borrow)</th><th>Stored (use cash)</th></tr><tr><td>$5M deposit drain</td><td>Borrowed 20 → 25. Assets stay $150M.</td><td>Cash 12 → 7. Assets shrink to $145M.</td></tr><tr><td>$5M loan commitment drawn</td><td>Loans +5, borrowed +5. Assets grow to $155M.</td><td>Loans +5, cash −5. Assets stay $150M.</td></tr><tr><td>Investment portfolio drops 50 → 45</td><td colspan="2">Equity falls 25 → 20 either way. Liquidity management only decides how the hole gets funded.</td></tr></table></div></div>
+<div class="grid g2">
+<div class="card"><h3>Financing gap</h3><div class="formula">FG = Average loans − Average (core) deposits</div><div class="formula">FG = −Liquid assets + Borrowed funds</div><div class="formula">Financing requirement = FG + Liquid assets = Borrowed funds</div><div class="note">How much borrowing do I need to do to cover my loans?</div><div class="note">For the project: FG = (Loans/A − Deposits/A) × A, where A = your bank's assets.</div><p class="small">Example (Table 12-6): loans 25 − core deposits 20 = FG of 5. Check: −5 liquid + 10 borrowed = 5.</p></div>
+<div class="card"><h3>Sources and uses of liquidity</h3><p><b>Net liquidity statement:</b></p><ul><li><b>Sources:</b> (i) cash-type assets, (ii) maximum borrowed funds available, (iii) excess cash reserves.</li><li><b>Uses:</b> borrowed or purchased funds already used, and anything already borrowed from the Fed discount window.</li></ul><p class="small">Past statements help managers spot future liquidity problems.</p></div>
+</div>
+<div class="grid g2">
+<div class="card"><h3>Liquidity index</h3><div class="formula">I = Σ wᵢ (Pᵢ / Pᵢ*)</div><p>P = fire-sale price, P* = fair (full) price, w = each asset's share of portfolio value. Closer to 1 = more liquid.</p><p><b>Example 12-1:</b> 50% T-bills (99 vs 100) and 50% real estate loans (85 vs 92): I = 0.495 + 0.462 = <b>0.957</b>. In a thin market (65 vs 92): I = 0.495 + 0.353 = <b>0.848</b>.</p><div class="info">Shortcut when P* is fair value: I = total fire-sale value ÷ total fair value. Problem set: (9 + 14 + 8 + 65) / 130 = 0.738.</div></div>
+<div class="card"><h3>New ratios (Basel III)</h3><div class="formula">LCR = High-quality liquid assets / Net cash outflows over 30 days ≥ 100%</div><div class="note">Think of it like how much can the bank cover on their own for liquidity needs.</div><div class="formula">NSFR = Available stable funding / Required stable funding &gt; 100%</div><div class="note">Of all of our liabilities and equity, how much is not going anywhere? Is it less than or greater than 1, and what does it mean?</div><p class="small"><b>Answer to your question:</b> above 1 means the bank has more stable funding than its assets require, which is the goal. Below 1 means too much long-term lending is funded by money that could leave.</p></div>
+</div>
+<div class="card"><h3>Peer comparisons (Table 12-7, June 2021)</h3><div class="tablewrap"><table class="simpletable"><tr><th>Ratio</th><th class="num">Northern Trust</th><th class="num">Bank of America</th><th>Who looks better</th></tr><tr><td>Loans to deposits</td><td class="num">25.17%</td><td class="num">45.50%</td><td>Northern Trust (fewer illiquid loans per dollar of deposits)</td></tr><tr><td>Loans to total assets</td><td class="num">21.68%</td><td class="num">38.45%</td><td>Northern Trust</td></tr><tr><td>Core deposits to total assets</td><td class="num">30.66%</td><td class="num">78.83%</td><td>Bank of America (much stickier funding)</td></tr><tr><td>Unused commitments to total assets</td><td class="num">16.23%</td><td class="num">38.98%</td><td>Northern Trust (less cash could be demanded through credit lines)</td></tr></table></div><p class="small">BOA is safer on funding stability (liability side). Northern Trust is safer on loans and commitments (asset side). Name the ratio you're leaning on when you answer.</p><p class="small">Other control measures: contractual maturity mismatch, concentration of funding, available unencumbered assets, LCR by significant currency, market-related monitoring tools.</p></div>
+<div class="grid g2">
+<div class="card"><h3>Liquidity planning</h3><div class="note">I.e., what your plan is when everything goes wrong during a crisis.</div><ul><li>Make funding decisions before problems arise; find the cheapest funding mix; minimize excess reserves.</li><li>Delineate responsibilities: who talks to regulators, who discloses to the public.</li><li>List fund providers and how they'll behave: mutual and pension funds pull out faster than correspondent banks and small businesses. Allow for seasonality.</li><li>Size potential withdrawals over different horizons; identify private-market alternatives.</li><li>Set internal limits on subsidiaries' and branches' borrowing; plan the sequence of asset sales.</li></ul></div>
+<div class="card"><h3>Bank runs</h3><ul><li>Triggered by concerns about solvency, failure of a related FI, or sudden shifts in investor preferences.</li><li>Demand deposits are first come, first served, so your place in line matters. That's what makes runs self-feeding.</li><li><b>Bank panic:</b> a systemic, contagious run across the industry.</li><li>Fixes: deposit insurance (FDIC), discount window, direct actions like TARP (2008-09).</li><li>Not free: protection may encourage banks to take more liquidity risk.</li></ul><div class="note">For SVB, the government said they'd cover everything.</div></div>
+</div>
+</div>
+
+<!-- Ch 8 -->
+<div class="tab" id="tab-repr">
+<div class="grid g2">
+<div class="card"><h3>Level and movement of rates</h3><ul><li>The Fed uses open market operations to influence money supply, inflation, and rates. It mostly targets short-term rates, especially fed funds.</li><li>Dec 2008: target of 0 to 0.25%. First hike in 10 years: Dec 2015, then six more by June 2018.</li><li>Rate changes spread across countries through global markets. The Fed chair's statements can move world rates.</li></ul><div class="note">Grey areas on the T-bill chart are recessions. In every documented recession, rates drop.</div></div>
+<div class="card"><h3>The repricing (funding gap) model</h3><p>A simple <b>book-value</b> cash flow model used by small US FIs. It compares interest income on assets with interest expense on liabilities over a planning period.</p><div class="formula">GAP = RSA − RSL</div><div class="formula">ΔNII = CGAP × ΔR</div><div class="formula">Gap ratio = CGAP / Total assets</div><p class="small">Maturity buckets: 1 day; 1 day to 3 months; 3 to 6 months; 6 to 12 months; 1 to 5 years; over 5 years.</p></div>
+</div>
+<div class="grid g2">
+<div class="card"><h3>What counts as rate sensitive?</h3><p>It reprices at or near current market rates within the planning period:</p><div class="note">If something matures in the window we care about (like T-bills), or if it has a variable interest rate (like a credit card).</div><ul><li>Short-term consumer loans: reprice at year-end, just make the 1-year cutoff.</li><li>3-month T-bills reprice every 3 months; 6-month T-notes every 6 months.</li><li>30-year floating-rate mortgages that reset every 9 months count in the 1-year gap.</li><li>A 30-year <i>fixed</i> mortgage maturing in 20 years: not rate sensitive.</li></ul><div class="trap">Long maturity doesn't mean "not rate sensitive" if the rate resets. Check the reset date, not just the maturity.</div></div>
+<div class="card"><h3>Demand deposits: RSL or not?</h3><p><b>Against inclusion:</b> the explicit rate is zero by regulation, rates paid don't track market rates, and they act as core deposits.</p><p><b>For inclusion:</b> they pay implicit interest (fees don't fully cover checking costs), and there's runoff risk.</p><div class="note">When interest rates change, do I change my structure at the bank so the bank has to pay me more interest?</div><p class="small">Class default: leave demand deposits out of RSLs. In the State Bank solution, savings accounts and MMDAs <i>are</i> counted as rate sensitive within 6 months.</p></div>
+</div>
+<div class="card"><h3>Bucket example and sign logic</h3><div class="grid g2"><div class="tablewrap"><table class="simpletable"><tr><th>Bucket ($M)</th><th class="num">Assets</th><th class="num">Liab.</th><th class="num">Gap</th><th class="num">Cum. gap</th></tr><tr><td>1 day</td><td class="num">20</td><td class="num">30</td><td class="num">−10</td><td class="num">−10</td></tr><tr><td>1 day to 3 months</td><td class="num">30</td><td class="num">40</td><td class="num">−10</td><td class="num">−20</td></tr><tr><td>3 to 6 months</td><td class="num">70</td><td class="num">85</td><td class="num">−15</td><td class="num">−35</td></tr><tr><td>6 to 12 months</td><td class="num">90</td><td class="num">70</td><td class="num">+20</td><td class="num">−15</td></tr><tr><td>1 to 5 years</td><td class="num">40</td><td class="num">30</td><td class="num">+10</td><td class="num">−5</td></tr><tr><td>Over 5 years</td><td class="num">10</td><td class="num">5</td><td class="num">+5</td><td class="num">0</td></tr></table></div><div><p>One-day gap: (−$10M)(.01) = <b>−$100,000</b>.<br>1-year CGAP: (−$15M)(.01) = <b>−$150,000</b>.</p><div class="tablewrap"><table class="simpletable"><tr><th>CGAP</th><th>Rates</th><th>ΔNII</th></tr><tr><td>Positive</td><td>Rise</td><td>Rises</td></tr><tr><td>Positive</td><td>Fall</td><td>Falls</td></tr><tr><td>Negative</td><td>Rise</td><td>Falls</td></tr><tr><td>Negative</td><td>Fall</td><td>Rises</td></tr></table></div></div></div><div class="note">Gap ratio: you can now compare one bank to another. Slide example: $15M / $270M = 5.6%.</div></div>
+<div class="grid g2">
+<div class="card"><h3>Unequal rate changes</h3><p>If asset and liability rates move by different amounts, the spread changes too.</p><div class="formula">ΔNII = (RSA × ΔR<sub>RSA</sub>) − (RSL × ΔR<sub>RSL</sub>)</div><p><b>Example 8-2:</b> RSA = RSL = $155M; asset rates +1.2%, liability rates +1.0%. ΔNII = 1.86 − 1.55 = <b>+$310,000</b>, even with zero gap.</p><div class="info">Explain results in two pieces, like the State Bank solution. <b>Gap effect:</b> the sign of CGAP times the direction of rates. <b>Spread effect:</b> did asset rates move more or less than liability rates? They can cancel (State Bank part c) or stack (part d).</div></div>
+<div class="card"><h3>Weaknesses of the repricing model</h3><ul><li>Ignores market value effects of rate changes.</li><li>Over-aggregation: buckets are too broad, so mismatches within a bucket are hidden.</li><li>Ignores runoffs: banks constantly originate and retire loans, and runoff of a "rate-insensitive" item is rate sensitive.</li><li>Leaves out off-balance-sheet items and hedges like futures.</li></ul></div>
+</div>
+</div>
+
+<!-- Ch 9 -->
+<div class="tab" id="tab-dur">
+<div class="grid g2">
+<div class="card"><h3>Macaulay duration</h3><p>Weighted-average time to maturity, using each cash flow's share of present value as its weight. Measured in years. A more complete measure of rate sensitivity than maturity.</p><div class="formula">D = Σ(PVₜ × t) / Σ PVₜ</div><p><b>Slide example:</b> $100 loan at 15%, half due at 6 months. CFs 57.50 and 53.75, PVs 53.49 and 46.51, weights 0.5349 and 0.4651. D = 0.5349(½) + 0.4651(1) = <b>0.7326 years</b>.</p><div class="trap">Check that your PVs add up to the price. A wrong cell reference in Bonds.xlsx Sheet2 (the top block) only adds to $369.83 instead of $1,000 for that reason.</div></div>
+<div class="card"><h3>Features of duration</h3><ul><li><b>Maturity:</b> duration rises with maturity, at a decreasing rate. Zero-coupon: D = maturity. Every coupon bond: D &lt; maturity.</li><li><b>Yield:</b> duration falls as yield rises.</li><li><b>Coupon:</b> duration falls as coupon rises.</li></ul><div class="note">Going from a maturity of 1 to 2 has more impact than a 30-year bond going to 31.</div><div class="note">When my yield increases, I'm discounting all my cash flows more, and the later ones get discounted the most. They count for less in the weighted average, so duration shortens.</div><div class="note">Higher coupon: I'm pushing more money earlier in the life of the bond.</div></div>
+</div>
+<div class="grid g2">
+<div class="card"><h3>Price sensitivity</h3><div class="formula">ΔP/P = −D × [ΔR / (1 + R)] = −MD × ΔR</div><div class="formula">MD = D / (1 + R)</div><div class="formula">ΔP = −MD × ΔR × P</div><div class="formula">Dollar duration = MD × P,  so ΔP = −Dollar duration × ΔR</div><div class="note">Semiannual coupon bonds: apply the same formula but divide the rate by 2. MD = D / (1 + R/2).</div><p class="small">T-bond example (2 years, 8% semiannual coupon, 12% yield): price $930.70, D = 1.8829, MD = 1.776. A 1-point rise: ΔP ≈ −$16.53.</p></div>
+<div class="card"><h3>Semiannual setup</h3><p>Coupon/2, yield/2, twice as many periods, but keep time <b>in years</b> (0.5, 1.0, 1.5, ...).</p><div class="formula">D = Σ [CFₜ × t / (1 + R/2)^(2t)] / Σ [CFₜ / (1 + R/2)^(2t)]</div><div class="tablewrap"><table class="simpletable"><tr><th class="num">t</th><th class="num">CF</th><th class="num">PV at 6%</th><th class="num">PV × t</th></tr><tr><td class="num">0.5</td><td class="num">40</td><td class="num">37.74</td><td class="num">18.87</td></tr><tr><td class="num">1.0</td><td class="num">40</td><td class="num">35.60</td><td class="num">35.60</td></tr><tr><td class="num">1.5</td><td class="num">40</td><td class="num">33.58</td><td class="num">50.38</td></tr><tr><td class="num">2.0</td><td class="num">1,040</td><td class="num">823.78</td><td class="num">1,647.55</td></tr><tr class="total"><td colspan="2">Total</td><td class="num">930.70</td><td class="num">1,752.40</td></tr></table></div><div class="trap">If a problem says "8% annual yield, semiannual," use 4% per period. Bonds.xlsx Sheet1 instead converts 8% with NOMINAL(), getting 7.846%. Use whichever convention the question states.</div></div>
+</div>
+<div class="grid g2">
+<div class="card"><h3>Immunization</h3><p>Matching maturity to a payout doesn't remove rate risk. Matching <b>duration</b> to the investment horizon does, for small rate shocks.</p><div class="note">The goal of immunizing is trying to ensure the value of equity doesn't change.</div><div class="info"><b>It drifts.</b> In the problem set, a 3-year 8% bond at 10% has D = 2.777, matching a 2.777-year horizon. One year later the horizon is 1.777, but the bond's duration is 1.925. Duration falls less than one year per year, so you have to rebalance (with 15.92% in 1-year zeros).</div><div class="formula">Rebalance: Horizon = w × D_zero + (1 − w) × D_bond  →  w = (H − D_bond) / (D_zero − D_bond)</div></div>
+<div class="card"><h3>Duration gap (balance sheet)</h3><p>E = A − L, so ΔE = ΔA − ΔL. Using duration on each side:</p><div class="formula">ΔE = −[D<sub>A</sub> − k·D<sub>L</sub>] × A × [ΔR / (1 + R)],  k = L/A</div><p>Three effects: (1) leverage-adjusted duration gap, (2) size of the FI, (3) size of the rate shock.</p><p><b>Example 9-9:</b> D<sub>A</sub> = 5, D<sub>L</sub> = 3, A = 100, L = 90, rates 10% → 11%: ΔE = −[5 − 2.7] × 100 × (.01/1.1) = <b>−$2.09</b>.</p><p><b>Unequal rates</b> (assets +1.5 points, liabilities +1 point): ΔA = −6.82, ΔL = −2.45, ΔE = <b>−$4.37</b>.</p><div class="callout">To set ΔE = 0: <b>D<sub>A</sub> = k·D<sub>L</sub></b>. To protect the E/A ratio instead: D<sub>A</sub> = D<sub>L</sub>.</div><div class="trap">If a problem gives the <b>relative</b> change in rates (State Bank part g), that number already is ΔR/(1+R). Don't divide by (1 + R) again.</div></div>
+</div>
+<div class="card"><h3>Convexity</h3><p>The price-yield curve isn't a straight line. Duration is the tangent line, so it <b>overstates price drops</b> when rates rise and <b>understates price gains</b> when rates fall. The bigger the rate move, the bigger the error.</p><div class="note">Convexity works in the bondholder's favor: when rates fall, prices rise more than duration predicts, and when rates rise, they fall less.</div><svg id="convexChart" class="chart" viewBox="0 0 700 330" role="img" aria-label="Price-yield curve for a 10-year 8% coupon bond with the duration tangent line at 6%"></svg><div class="tablewrap"><table class="simpletable" id="convexTable"></table></div><p class="small">From the In-Class 10-21 tab of Bonds.xlsx: 10-year, 8% annual coupon, $1,000 par, priced at 6% = $1,147.20. Difficulties in applying duration: matching is costly, immunization is dynamic (it drifts), and large rate changes bring in convexity.</p></div>
+</div>
+</div></section>
+
+<!-- ===================== PROBLEM SETS ===================== -->
+<section id="problemsets"><div class="wrap">
+<h2>Professor's Problem Sets, Step by Step</h2>
+<p class="lead">These are the exact problems from the slides. Work each step on paper, then reveal. I rechecked every number in the solution docs.</p>
+<div class="tabs"><button class="tabbtn active" data-ps="ps1">Liquidity: the DI</button><button class="tabbtn" data-ps="ps2">Immunizing a horizon</button><button class="tabbtn" data-ps="ps3">State Bank</button></div>
+
+<div class="ps active" id="ps-ps1"><div class="card">
+<div class="qtag">Liquidity risk problems</div><h3>A DI's balance sheet ($ millions)</h3>
+<div class="grid g2"><div class="tablewrap"><table class="simpletable"><tr><th>Assets</th><th class="num">$</th></tr><tr><td>Cash</td><td class="num">9</td></tr><tr><td>Loans</td><td class="num">95</td></tr><tr><td>Securities</td><td class="num">26</td></tr><tr class="total"><td>Total</td><td class="num">130</td></tr></table></div><div class="tablewrap"><table class="simpletable"><tr><th>Liabilities &amp; equity</th><th class="num">$</th></tr><tr><td>Deposits</td><td class="num">75</td></tr><tr><td>Purchased funds</td><td class="num">40</td></tr><tr><td>Equity</td><td class="num">15</td></tr><tr class="total"><td>Total</td><td class="num">130</td></tr></table></div></div>
+<p class="small">Securities = $16M T-bills + $10M GNMAs. $20M repo line of credit, $5M excess reserves at the Fed. Currently borrowed: $22M fed funds and $18M from the discount window.</p>
+<div class="ps-step"><b>1. Calculate the financing gap.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">FG = Loans − Deposits = 95 − 75 = $20M</div></div></div>
+<div class="ps-step"><b>2. What is the financing requirement?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">Financing requirement = FG + Liquid assets = 20 + 26 = $46M</div><p class="small">The solution treats the $26M of securities as the liquid assets.</p></div></div>
+<div class="ps-step"><b>3. A $20M net deposit drain is expected. Show the balance sheet if (a) the DI purchases liabilities, (b) it uses stored liquidity (cash can't drop below $5M, securities sell at fair value).</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="tablewrap"><table class="simpletable"><tr><th>($M)</th><th class="num">Before</th><th class="num">(a) Purchased</th><th class="num">(b) Stored</th></tr><tr><td>Cash</td><td class="num">9</td><td class="num">9</td><td class="num">5</td></tr><tr><td>Loans</td><td class="num">95</td><td class="num">95</td><td class="num">95</td></tr><tr><td>Securities</td><td class="num">26</td><td class="num">26</td><td class="num">10</td></tr><tr class="total"><td>Total assets</td><td class="num">130</td><td class="num">130</td><td class="num">110</td></tr><tr><td>Deposits</td><td class="num">75</td><td class="num">55</td><td class="num">55</td></tr><tr><td>Purchased funds</td><td class="num">40</td><td class="num">60</td><td class="num">40</td></tr><tr><td>Equity</td><td class="num">15</td><td class="num">15</td><td class="num">15</td></tr><tr class="total"><td>Total L + E</td><td class="num">130</td><td class="num">130</td><td class="num">110</td></tr></table></div><p class="small">(b): use cash down to the $5M floor (covers 4), then sell $16M of securities for the other 16. Assets shrink by the full $20M.</p></div></div>
+<div class="ps-step"><b>4. Calculate the 3-day and 10-day liquidity index.</b><div class="tablewrap"><table class="simpletable"><tr><th>Asset</th><th class="num">Fair value</th><th class="num">t = 3 days</th><th class="num">t = 10 days</th></tr><tr><td>Cash</td><td class="num">9</td><td class="num">9</td><td class="num">9</td></tr><tr><td>T-bills</td><td class="num">16</td><td class="num">14</td><td class="num">15.5</td></tr><tr><td>GNMAs</td><td class="num">10</td><td class="num">8</td><td class="num">9</td></tr><tr><td>Loans</td><td class="num">95</td><td class="num">65</td><td class="num">75</td></tr></table></div><button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">I(3) = 9/130·9/9 + 16/130·14/16 + 10/130·8/10 + 95/130·65/95 = 96/130 = 0.738</div><div class="formula">I(10) = (9 + 15.5 + 9 + 75) / 130 = 108.5/130 = 0.835</div><p class="small">Selling in 3 days recovers 73.8% of fair value; waiting 10 days recovers 83.5%. Faster sale = bigger fire-sale discount.</p><div class="trap">The solutions doc's table shows loans at 60 and 70, but the slide and the doc's own math use 65 and 75. Go with 65 and 75.</div></div></div>
+<div class="ps-step"><b>Bonus (my extension, not in the problem set): the net liquidity statement.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><p>The extra facts in the setup map onto the slide 17 definitions:</p><div class="formula">Sources = securities 26 (T-bills 16 + GNMAs 10) + repo line 20 + excess reserves 5 = $51M</div><div class="formula">Uses = fed funds borrowed 22 + discount window 18 = $40M</div><div class="formula">Net liquidity = 51 − 40 = $11M</div></div></div>
+</div></div>
+
+<div class="ps hidden" id="ps-ps2"><div class="card">
+<div class="qtag">Interest rate risk problems</div><h3>Immunizing a 2.777-year horizon</h3>
+<p>An FI's investment horizon is 2 years 9.33 months (2.777 years). All assets are in 8%, $1,000, 3-year bonds yielding 10%, annual coupons. The manager believes the assets are immunized.</p>
+<div class="ps-step"><b>a. Is the portfolio immunized at purchase? What's the duration?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="tablewrap"><table class="simpletable"><tr><th class="num">t</th><th class="num">CF</th><th class="num">DF at 10%</th><th class="num">PV</th><th class="num">PV × t</th></tr><tr><td class="num">1</td><td class="num">80</td><td class="num">0.9091</td><td class="num">72.73</td><td class="num">72.73</td></tr><tr><td class="num">2</td><td class="num">80</td><td class="num">0.8264</td><td class="num">66.12</td><td class="num">132.23</td></tr><tr><td class="num">3</td><td class="num">1,080</td><td class="num">0.7513</td><td class="num">811.42</td><td class="num">2,434.26</td></tr><tr class="total"><td colspan="3">Total</td><td class="num">950.26</td><td class="num">2,639.22</td></tr></table></div><div class="formula">D = 2,639.22 / 950.26 = 2.777 years (33.33 months)</div><p>Yes: duration matches the horizon, so it's immunized at purchase. This is also the Exam Prep tab in Bonds.xlsx.</p></div></div>
+<div class="ps-step"><b>b. Will it be immunized one year later?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><p>Horizon is now 1.777 years (21.33 months). The bonds are now 2-year bonds:</p><div class="tablewrap"><table class="simpletable"><tr><th class="num">t</th><th class="num">CF</th><th class="num">DF</th><th class="num">PV</th><th class="num">PV × t</th></tr><tr><td class="num">1</td><td class="num">80</td><td class="num">0.9091</td><td class="num">72.73</td><td class="num">72.73</td></tr><tr><td class="num">2</td><td class="num">1,080</td><td class="num">0.8264</td><td class="num">892.56</td><td class="num">1,785.12</td></tr><tr class="total"><td colspan="3">Total</td><td class="num">965.29</td><td class="num">1,857.85</td></tr></table></div><div class="formula">D = 1,857.85 / 965.29 = 1.9247 years ≈ 23.1 months</div><p>No. Duration (1.925) is now longer than the horizon (1.777).</p></div></div>
+<div class="ps-step"><b>c. One-year 8% zero-coupon bonds are available. What share of the portfolio should move into them?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">21.33 months = w × 12 + (1 − w) × 1.9247 × 12</div><div class="formula">w = (21.33 − 23.10) / (12 − 23.10) = 15.92%</div><p>A 1-year zero has duration 1 (zero-coupon: D = maturity), so mixing it in pulls portfolio duration down to the horizon.</p></div></div>
+</div></div>
+
+<div class="ps hidden" id="ps-ps3"><div class="card">
+<div class="qtag">Interest rate risk problems</div><h3>State Bank (market yields and durations in parentheses, $ millions)</h3>
+<p class="small">Total assets $3,156, total liabilities $2,778, equity $378.</p>
+<div class="ps-step"><b>a. Repricing gap for 6 months and 1 year.</b> First, classify every item yourself:
+<div class="tablewrap"><table class="simpletable classify" id="classifyTable"></table></div>
+<div class="answerrow"><button class="btn" id="classifyCheck">Check my classification</button><button class="btn secondary" id="classifyShow">Show answers</button><span id="classifyScore" class="scorebox"></span></div>
+<button class="btn secondary small" data-reveal style="margin-top:10px">Reveal the gaps</button><div class="reveal"><div class="formula">6-month RSAs = 150 + 200 + 250 + 450 = 1,050<br>6-month RSLs = 50 + 460 + 175 + 225 + 290 + 300 = 1,500<br>CGAP(6m) = 1,050 − 1,500 = −$450M</div><div class="formula">1-year RSAs = 1,050 + 200 + 300 = 1,550<br>1-year RSLs = 1,500 + 375 + 200 = 2,075<br>CGAP(1y) = 1,550 − 2,075 = −$525M</div><p class="small">The solution's classification table lists equity as 400, but the balance sheet says 378. It doesn't affect any gap.</p></div></div>
+<div class="ps-step"><b>b. What is State Bank's duration gap?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><p>Weight each duration by dollar amount (cash, premises, demand deposits have D = 0):</p><div class="formula">D<sub>A</sub> = Σ(amount × D) / 3,156 = 3.9012 years</div><div class="formula">D<sub>L</sub> = Σ(amount × D) / 2,778 = 1.2290 years</div><div class="formula">DGAP = 3.9012 − (2,778/3,156)(1.2290) = 3.9012 − 0.8802(1.2290) = 2.8194 years</div></div></div>
+<div class="ps-step"><b>c. Next 6 months: RSA rates +50 bp, RSL rates +35 bp. ΔNII? Explain.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">ΔNII = 1,050(0.0050) − 1,500(0.0035) = 5.25 − 5.25 = $0</div><p><b>Gap effect:</b> negative gap + rising rates pushes NII down. <b>Spread effect:</b> asset rates rose more than liability rates, which pushes NII up. Here they exactly offset.</p></div></div>
+<div class="ps-step"><b>d. Next year: RSA rates fall (rise) 35 bp, RSL rates fall (rise) 50 bp. ΔNII? Explain.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">Falling: 1,550(−0.0035) − 2,075(−0.0050) = −5.425 + 10.375 = +$4.95M</div><div class="formula">Rising: 1,550(0.0035) − 2,075(0.0050) = 5.425 − 10.375 = −$4.95M</div><p>Falling rates: negative gap helps, and liability rates fell more (spread widens), so both effects raise NII. Rising rates: both effects hurt.</p></div></div>
+<div class="ps-step"><b>e. Asset rates fall 0.35%, liability rates fall 0.50%. Use durations to find ΔMV of assets and liabilities.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">Each item: ΔMV = −D × ΔR / (1 + R) × amount, using that item's own R</div><div class="tablewrap"><table class="simpletable" id="stateBankE"></table></div></div></div>
+<div class="ps-step"><b>f. Change in equity from those duration values?</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">ΔMVE = ΔMVA − ΔMVL = 40,802,915 − 16,283,040 = +$24,519,875</div><p>Equity rises because assets have a much longer duration than liabilities and rates fell.</p></div></div>
+<div class="ps-step"><b>g. Use the duration gap model: the relative change in all rates is a decrease of 50 bp.</b> <button class="btn secondary small" data-reveal>Reveal</button><div class="reveal"><div class="formula">ΔE = −DGAP × A × [ΔR/(1+R)] = −2.81939 × 3,156 × (−0.0050) = +$44.49M</div><div class="trap">"Relative change" means ΔR/(1+R) is already −0.0050. No extra division by (1 + R).</div></div></div>
+</div></div>
+</div></section>
+
+<!-- ===================== TI-84 ===================== -->
+<section id="calculator" class="alt"><div class="wrap">
+<h2>TI-84 Plus CE Workflows</h2>
+<p class="lead">The goal is clean entries and as little retyping as possible.</p>
+<div class="grid g2">
+<div class="card"><h3>Bond price with the TVM Solver</h3><div class="ti"><span class="key">APPS</span> → 1:Finance → 1:TVM Solver<br><br>N = 3 &nbsp;&nbsp;(years)<br>I% = 10 &nbsp;(YTM)<br>PV = 0 &nbsp;&nbsp;(placeholder)<br>PMT = 80 (coupon)<br>FV = 1000<br>P/Y = 1, C/Y = 1, PMT: END<br><br>Cursor on PV, press <span class="key">ALPHA</span> <span class="key">ENTER</span> (SOLVE)<br>PV = −950.26</div><p class="small">The negative sign just means you pay the price. This is the calculator version of Excel's =PV(B6,B5,−B3*B4,−B3).</p></div>
+<div class="card"><h3>Semiannual bonds and solving for YTM</h3><div class="ti">Semiannual (2-yr, 8% coupon, 12% yield):<br>N = 4, I% = 6, PMT = 40, FV = 1000<br>P/Y = 1, C/Y = 1 → solve PV = −930.70<br><br>Solve YTM from a price:<br>N = 3, PV = −950.26, PMT = 80, FV = 1000<br>Cursor on I%, <span class="key">ALPHA</span> <span class="key">ENTER</span> → 10.00</div><p class="small">Keeping P/Y = C/Y = 1 and entering per-period values (I% = 6, N = 4) is the least error-prone. For semiannual YTM, double the I% result.</p></div>
+<div class="card"><h3>Duration with lists</h3><div class="ti"><span class="key">STAT</span> → 1:Edit<br>L1 = times: 1, 2, 3<br>L2 = cash flows: 80, 80, 1080<br>Highlight L3 header, type: L2/(1.1)^L1<br>Highlight L4 header, type: L1*L3<br><br><span class="key">2nd</span> <span class="key">STAT</span> → MATH → 5:sum(<br>sum(L4)/sum(L3) = 2.7774</div><p class="small">Semiannual: put times in years (0.5, 1, ...) and use L2/(1.06)^(2*L1). L1 is <span class="key">2nd</span> <span class="key">1</span>, L2 is <span class="key">2nd</span> <span class="key">2</span>, and so on.</p></div>
+<div class="card"><h3>Direct entry for short problems</h3><div class="ti">80/1.1 + 80/1.1^2 + 1080/1.1^3<br>= 950.26 <span class="key">STO→</span> <span class="key">ALPHA</span> P<br><br>ΔP = −(D/(1+R)) × ΔR × P<br>−(2.777/1.1) × .005 × P</div><p class="small">Store the price so you never retype it. Same trick for DGAP in multi-part problems.</p></div>
+<div class="card"><h3>Basis points and signs</h3><div class="ti">50 bp = 0.0050 &nbsp;&nbsp; 35 bp = 0.0035<br>100 bp = 1% = 0.01<br><br>Rates rise → ΔR positive<br>Rates fall → ΔR negative<br>"Relative change" = ΔR/(1+R) already</div><p class="small">Most exam mistakes are entering 50 bp as .50 or .05.</p></div>
+<div class="card"><h3>Duration gap in one line</h3><div class="ti">k = L/A: 2778/3156 = .8802 <span class="key">STO→</span> K<br>3.9012 − K×1.2290 = 2.8194 <span class="key">STO→</span> G<br>−G × 3156 × (−.005) = 44.49</div><p class="small">Sign check: positive DGAP + falling rates = equity rises.</p></div>
+</div>
+</div></section>
+
+<!-- ===================== PRACTICE ===================== -->
+<section id="practice"><div class="wrap">
+<h2>Quantitative Practice Lab</h2>
+<p class="lead">Each problem is freshly generated. Work it on your TI-84, type your answer, and press <kbd>Enter</kbd>. If you're wrong, the feedback tries to name the mistake (sign, basis points, wrong formula).</p>
+<div class="tabs" id="practiceCats"></div>
+<div class="answerrow" style="margin-top:0"><label for="pType" class="small"><b>Problem type</b></label><select id="pType"></select></div>
+<div id="practiceHost" style="margin-top:14px"></div>
+</div></section>
+
+<!-- ===================== CONCEPTS ===================== -->
+<section id="concepts" class="alt"><div class="wrap">
+<h2>Conceptual Check</h2>
+<p class="lead">This is the 40%. Say your answer out loud or jot it down, then reveal and grade yourself honestly. Your grades feed the progress bars.</p>
+<div class="tabs" id="conceptFilter"></div>
+<div id="conceptHost" class="grid g2"></div>
+</div></section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz"><div class="wrap">
+<div class="quizbar"><div><h2>Exam-Style Quiz</h2><p class="lead" style="margin-bottom:0">15 questions drawn from a bank of 40, at least two from every topic. Answer choices are shuffled each time.</p></div><div class="scorebox" id="scoreBox">Score: 0 / 0</div></div>
+<div class="progress"><div id="quizProgress"></div></div>
+<div id="quizHost" class="card" style="margin-top:18px"></div>
+</div></section>
+
+<!-- ===================== INDEX CARD ===================== -->
+<section id="indexcard" class="alt"><div class="wrap">
+<h2>Index Card Content</h2>
+<p class="lead">What to write on your 3×5 card. Front is formulas, back is logic and traps. Abbreviate however you like.</p>
+<div class="answerrow" style="margin-top:0;margin-bottom:12px"><button class="btn secondary" id="copyCard">Copy card text</button><span id="copyMsg" class="small"></span></div>
+<div class="grid g2">
+<div class="indexcard" id="cardFront"><h3>FRONT: Formulas</h3>
+<div class="grp">Liquidity</div><ul>
+<li>NDD = withdrawals − additions</li>
+<li>FG = Loans − Core deposits = −Liquid + Borrowed</li>
+<li>Fin. requirement = FG + Liquid assets</li>
+<li>I = Σ wᵢ(Pᵢ/Pᵢ*) = total sale value ÷ total fair value</li>
+<li>LCR = HQLA / 30-day net outflows ≥ 100%</li>
+<li>NSFR = Avail. stable / Req. stable &gt; 100%</li></ul>
+<div class="grp">Repricing</div><ul>
+<li>GAP = RSA − RSL; ΔNII = CGAP × ΔR</li>
+<li>Unequal: ΔNII = RSA·ΔR<sub>A</sub> − RSL·ΔR<sub>L</sub></li>
+<li>Gap ratio = CGAP / A</li></ul>
+<div class="grp">Duration</div><ul>
+<li>D = Σ(PV·t) / ΣPV (semi: R/2, 2n periods, t in years)</li>
+<li>MD = D/(1+R) (semi: D/(1+R/2))</li>
+<li>ΔP = −MD·ΔR·P; $Dur = MD·P</li>
+<li>ΔE = −(D<sub>A</sub> − kD<sub>L</sub>)·A·ΔR/(1+R), k = L/A</li>
+<li>ΔE = ΔA − ΔL (unequal: each side its own ΔR, R)</li>
+<li>Immunize: D<sub>A</sub> = kD<sub>L</sub>; horizon: D = H</li>
+<li>Rebalance: w = (H − D<sub>bond</sub>) / (D<sub>zero</sub> − D<sub>bond</sub>)</li></ul>
+</div>
+<div class="indexcard" id="cardBack"><h3>BACK: Logic &amp; Traps</h3>
+<div class="grp">Repricing</div><ul>
+<li>+GAP: rates ↑ NII ↑. −GAP: rates ↑ NII ↓</li>
+<li>Unequal rates = gap effect + spread effect (can cancel or stack)</li>
+<li>RS = matures or resets inside the window; demand deposits = not RS</li>
+<li>Repricing = book value / NII. Duration = market value / equity</li></ul>
+<div class="grp">Liquidity</div><ul>
+<li>PLM = borrow: assets same, NII ↓</li>
+<li>SLM = cash then sell securities: assets shrink</li>
+<li>Commitment drawn: assets ↑ under PLM, same under SLM</li>
+<li>NSFR &gt; 1 = enough funding that's "not going anywhere"</li></ul>
+<div class="grp">Duration</div><ul>
+<li>Zero: D = maturity. Coupon bond: D &lt; maturity</li>
+<li>Coupon ↑ → D ↓. Yield ↑ → D ↓</li>
+<li>Convexity: D overstates losses, understates gains</li>
+<li>Immunization drifts: D falls less than 1 yr per yr</li>
+<li>+DGAP: rates ↑ → equity ↓</li></ul>
+<div class="grp">Calculator</div><ul>
+<li>50 bp = .005. "Relative change" = ΔR/(1+R) already</li>
+<li>TVM: N, I%, PMT, FV → solve PV (ALPHA ENTER)</li></ul>
+</div>
+</div>
+</div></section>
+
+<footer class="footer"><div class="wrap">Built from your FIN 408 Exam 2 notes, the Chapter 7, 8, 9, and 12 slide decks, the interest rate risk and liquidity risk problem sets with solutions, and Bonds.xlsx (including the In-Class 10-21 and Exam Prep tabs). Progress is saved only in this browser.</div></footer>
+
+<script>
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const rnd=(a,b,step=1)=>{const n=Math.round((b-a)/step)+1;return +(a+Math.floor(Math.random()*n)*step).toFixed(6)};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const f=(x,d=2)=>Number(x).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const near=(a,b,tol)=>Math.abs(a-b)<=tol+1e-9;
+const sum=a=>a.reduce((s,x)=>s+x,0);
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function parseNum(s){
+  if(s==null)return NaN;
+  s=String(s).trim().replace(/[−‒–—]/g,'-').replace(/[$,%\s]/g,'').replace(/[a-zA-Z]+$/,'');
+  let neg=false;const m=s.match(/^\((.*)\)$/);if(m){neg=true;s=m[1]}
+  if(!/^[-+]?(\d+\.?\d*|\.\d+)$/.test(s))return NaN;
+  const v=parseFloat(s);return neg?-v:v;
+}
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const dec=x=>(x<0?'−':'')+Math.abs(x).toFixed(4);
+const bpTxt=b=>(b>0?'rise ':'fall ')+Math.abs(b)+' bp';
+const sg=(x,d=2)=>(x<0?'−':'')+f(Math.abs(x),d);
+
+/* ---------- progress ---------- */
+const TOPICS={risk:'Risk overview (Ch 7)',liq:'Liquidity (Ch 12)',repr:'Repricing (Ch 8)',bond:'Bond pricing',dur:'Duration (Ch 9)',dgap:'Duration gap & immunization'};
+let progress=store.get('fin408-progress-v2',{});
+function record(topic,ok){const p=progress[topic]||{r:0,t:0};p.t++;if(ok)p.r++;progress[topic]=p;store.set('fin408-progress-v2',progress);renderProgress()}
+function renderProgress(){
+  const host=$('#progressBars');let worst=null;
+  host.innerHTML=Object.entries(TOPICS).map(([k,name])=>{const p=progress[k]||{r:0,t:0};const pct=p.t?Math.round(100*p.r/p.t):0;
+    if(p.t>=3&&(!worst||pct<worst.pct))worst={k,name,pct};
+    const col=!p.t?'#c7cfdb':pct>=80?'#18794e':pct>=60?'#c58a00':'#b42318';
+    return `<div class="bar"><span>${name}</span><div class="track"><div class="fill" style="width:${p.t?Math.max(pct,4):0}%;background:${col}"></div></div><span class="pct">${p.t?pct+'% of '+p.t:'no tries'}</span></div>`}).join('');
+  const fn=$('#focusNext');
+  if(worst&&worst.pct<80){fn.classList.remove('hidden');fn.innerHTML=`<b>Focus next:</b> ${worst.name} (${worst.pct}% on first tries).`}else fn.classList.add('hidden');
+}
+let resetArmed=false;
+$('#resetProgress').onclick=()=>{const b=$('#resetProgress');if(!resetArmed){resetArmed=true;b.textContent='Click again to reset';setTimeout(()=>{resetArmed=false;b.textContent='Reset progress'},3000);return}
+  progress={};store.set('fin408-progress-v2',progress);resetArmed=false;b.textContent='Reset progress';renderProgress()};
+renderProgress();
+
+/* ---------- tabs ---------- */
+$$('.tabbtn[data-tab]').forEach(b=>b.onclick=()=>{$$('.tabbtn[data-tab]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.tab').forEach(t=>t.classList.remove('active'));$('#tab-'+b.dataset.tab).classList.add('active')});
+$$('.tabbtn[data-ps]').forEach(b=>b.onclick=()=>{$$('.tabbtn[data-ps]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.ps').forEach(t=>t.classList.add('hidden'));$('#ps-'+b.dataset.ps).classList.remove('hidden')});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-reveal]');if(!b)return;const r=b.parentElement.querySelector('.reveal');if(!r)return;r.classList.toggle('show');b.textContent=r.classList.contains('show')?'Hide':(b.dataset.label||'Reveal')});
+$$('[data-reveal]').forEach(b=>b.dataset.label=b.textContent);
+
+/* ---------- finance math ---------- */
+function bondRows(par,c,y,n,freq){const rows=[];const cp=par*c/freq,r=y/freq;for(let k=1;k<=n*freq;k++){const cf=k===n*freq?cp+par:cp;const pv=cf/Math.pow(1+r,k);rows.push({t:k/freq,cf,pv,pvt:pv*k/freq})}return rows}
+function price(par,c,y,n,freq=1){return sum(bondRows(par,c,y,n,freq).map(r=>r.pv))}
+function durOf(par,c,y,n,freq=1){const rows=bondRows(par,c,y,n,freq);const P=sum(rows.map(r=>r.pv)),PT=sum(rows.map(r=>r.pvt));return {D:PT/P,P,PT,rows}}
+function rowsTable(rows,rlabel){return `<div class="tablewrap"><table class="simpletable"><tr><th class="num">t (years)</th><th class="num">CF</th><th class="num">PV at ${rlabel}</th><th class="num">PV × t</th></tr>${rows.map(r=>`<tr><td class="num">${f(r.t,1)}</td><td class="num">${f(r.cf,2)}</td><td class="num">${f(r.pv,2)}</td><td class="num">${f(r.pvt,2)}</td></tr>`).join('')}<tr class="total"><td colspan="2">Total</td><td class="num">${f(sum(rows.map(r=>r.pv)),2)}</td><td class="num">${f(sum(rows.map(r=>r.pvt)),2)}</td></tr></table></div>`}
+function bsTable(rows){return `<div class="tablewrap"><table class="simpletable">${rows.map((r,i)=>i===0?`<tr>${r.map((c,j)=>`<th${j?' class="num"':''}>${c}</th>`).join('')}</tr>`:`<tr${r[0].startsWith('Total')?' class="total"':''}>${r.map((c,j)=>`<td${j?' class="num"':''}>${c}</td>`).join('')}</tr>`).join('')}</table></div>`}
+
+/* ---------- generators ---------- */
+const BPS=[-100,-75,-50,-35,-25,-20,-10,10,20,25,35,50,75,100];
+
+function genUnequal(){
+  const rsa=rnd(800,1800,50),rsl=rnd(800,1800,50);const ba=pick(BPS);let bl=pick(BPS);while(bl===ba)bl=pick(BPS);
+  const ra=ba/1e4,rl=bl/1e4,ans=rsa*ra-rsl*rl;
+  const gapDir=(rsa-rsl)*(ba>0?1:-1), spread=(ba-bl);
+  return {topic:'repr',tag:'Repricing · Unequal rate changes',title:'Find the change in NII',
+    body:`A bank has <b>$${rsa}m</b> of RSAs and <b>$${rsl}m</b> of RSLs in the planning period. Rates on RSAs <b>${bpTxt(ba)}</b> and rates on RSLs <b>${bpTxt(bl)}</b>. Find ΔNII.`,
+    answer:ans,tol:.005,unit:'$ millions',
+    alts:[{v:rsa*rl-rsl*ra,msg:'Looks like the rates got swapped. RSAs go with the RSA rate change and RSLs with the RSL rate change.'},{v:(rsa-rsl)*ra,msg:'You used one rate change for both sides. With unequal changes, each side gets its own rate.'},{v:(rsa-rsl)*rl,msg:'You used one rate change for both sides. With unequal changes, each side gets its own rate.'}],
+    solution:`<ol><li>Convert basis points: ΔR<sub>RSA</sub> = ${dec(ra)}, ΔR<sub>RSL</sub> = ${dec(rl)}.</li><li>ΔNII = RSA × ΔR<sub>RSA</sub> − RSL × ΔR<sub>RSL</sub></li><li>= ${rsa}(${dec(ra)}) − ${rsl}(${dec(rl)}) = ${sg(rsa*ra,3)} − (${sg(rsl*rl,3)})</li><li><b>ΔNII = $${sg(ans,3)}m</b></li></ol><p class="small">Explain it like State Bank: the <b>gap effect</b> ${rsa===rsl?'is zero (RSA = RSL)':gapDir>0?'pushes NII up ('+(rsa>rsl?'positive':'negative')+' gap, rates '+(ba>0?'rising':'falling')+' on assets)':'pushes NII down ('+(rsa>rsl?'positive':'negative')+' gap, rates '+(ba>0?'rising':'falling')+' on assets)'}, and the <b>spread effect</b> ${spread>0?'pushes NII up (asset rates moved up more, or fell less, than liability rates)':'pushes NII down (liability rates moved up more, or fell less, than asset rates)'}.</p>`};
+}
+function genBuckets(){
+  const names=['One day','1 day to 3 months','3 to 6 months','6 to 12 months','1 to 5 years','Over 5 years'];
+  let A,L,cums,gaps,hz,cg;
+  do{A=names.map(()=>rnd(10,100,5));L=names.map(()=>rnd(10,100,5));gaps=A.map((a,i)=>a-L[i]);let c=0;cums=gaps.map(g=>c+=g);hz=pick([['6 months',3],['1 year',4]]);cg=cums[hz[1]-1]}while(cg===0);
+  const b=pick([-100,-50,-25,25,50,75,100]),dr=b/1e4,ans=cg*dr*1000;
+  const other=hz[1]===3?cums[3]:cums[2];
+  const table=`<div class="tablewrap"><table class="simpletable"><tr><th>Bucket ($M)</th><th class="num">Assets</th><th class="num">Liabilities</th></tr>${names.map((n,i)=>`<tr><td>${n}</td><td class="num">${A[i]}</td><td class="num">${L[i]}</td></tr>`).join('')}</table></div>`;
+  const stable=`<div class="tablewrap"><table class="simpletable"><tr><th>Bucket</th><th class="num">Gap</th><th class="num">Cumulative</th></tr>${names.map((n,i)=>`<tr${i===hz[1]-1?' class="total"':''}><td>${n}</td><td class="num">${sg(gaps[i],0)}</td><td class="num">${sg(cums[i],0)}</td></tr>`).join('')}</table></div>`;
+  return {topic:'repr',tag:'Repricing · Cumulative gap',title:`Find ΔNII using the ${hz[0]} cumulative gap`,
+    body:`${table}<p>Rates on all rate-sensitive items <b>${bpTxt(b)}</b>. Using the <b>${hz[0]}</b> cumulative repricing gap, find ΔNII in <b>$ thousands</b>.</p>`,
+    answer:ans,tol:.5,unit:'$ thousands',
+    alts:[{v:other*dr*1000,msg:'Check the planning period: a 6-month gap uses the first 3 buckets and a 1-year gap uses the first 4.'},{v:gaps[hz[1]-1]*dr*1000,msg:'That is just the last bucket\'s gap. Use the cumulative gap through the planning period.'},{v:cums[5]*dr*1000,msg:'You included buckets beyond the planning period.'},{v:cg*dr,msg:'Right setup, wrong units. The question asks for $ thousands: multiply $ millions by 1,000.'}],
+    solution:`${stable}<ol><li>Cumulative gap through ${hz[0]} = <b>${sg(cg,0)}M</b>.</li><li>ΔNII = CGAP × ΔR = ${sg(cg,0)}M × ${dec(dr)} = $${sg(cg*dr,3)}M</li><li><b>= $${sg(ans,1)} thousand</b></li></ol><p class="small">${cg<0?'Negative':'Positive'} gap and rates ${b>0?'rising':'falling'}, so NII ${(cg<0)===(b>0)?'falls':'rises'}.</p>`};
+}
+function genGapRatio(){
+  const cg=pick([-1,1])*rnd(5,80,5),A=rnd(150,900,10),ans=cg/A*100;
+  return {topic:'repr',tag:'Repricing · Gap ratio',title:'Find the gap ratio',
+    body:`A bank\'s 1-year cumulative gap is <b>${sg(cg,0)} million</b> and total assets are <b>$${A} million</b>. Find the gap ratio as a percent.`,
+    answer:ans,tol:.05,unit:'%',alts:[{v:A/cg,msg:'Flip it: gap ratio = CGAP ÷ total assets.'}],
+    solution:`<ol><li>Gap ratio = CGAP / A = ${sg(cg,0)} / ${A}</li><li><b>= ${sg(ans,2)}%</b></li></ol><p class="small">The sign gives direction (${cg<0?'negative: NII falls if rates rise':'positive: NII rises if rates rise'}) and the size lets you compare banks of different sizes.</p>`};
+}
+function genFG(){
+  const v=pick(['gap','req','proj']);
+  if(v==='proj'){const lp=rnd(55,80),dp=lp-rnd(3,15),A=rnd(200,900,50),ans=(lp-dp)/100*A;
+    return {topic:'liq',tag:'Liquidity · Financing gap (project formula)',title:'Find the financing gap in dollars',
+      body:`A bank\'s loans are <b>${lp}%</b> of total assets and its deposits are <b>${dp}%</b> of total assets. Total assets are <b>$${A} million</b>. Find the financing gap.`,
+      answer:ans,tol:.05,unit:'$ millions',alts:[{v:lp-dp,msg:'That is the gap as a percent of assets. Multiply by total assets to get dollars.'}],
+      solution:`<ol><li>FG = (Loans/A − Deposits/A) × A</li><li>= (${(lp/100).toFixed(2)} − ${(dp/100).toFixed(2)}) × ${A}</li><li><b>= $${f(ans,2)}M</b></li></ol><p class="small">This is the formula from your notes for the project.</p>`}}
+  const loans=rnd(80,150,5),dep=loans-rnd(5,40,5),liq=rnd(10,45,5),fg=loans-dep;
+  if(v==='gap')return {topic:'liq',tag:'Liquidity · Financing gap',title:'Find the financing gap',
+    body:`Average loans are <b>$${loans}m</b>, average core deposits are <b>$${dep}m</b>, and liquid assets are <b>$${liq}m</b>. Find the financing gap.`,
+    answer:fg,tol:.01,unit:'$ millions',alts:[{v:fg+liq,msg:'That is the financing requirement. The financing gap is just loans − deposits.'},{v:fg-liq,msg:'Liquid assets don\'t enter the financing gap. FG = loans − deposits.'}],
+    solution:`<ol><li>FG = Average loans − Average deposits = ${loans} − ${dep}</li><li><b>FG = $${fg}M</b></li></ol><p class="small">That\'s how much of the loan book isn\'t funded by core deposits.</p>`};
+  return {topic:'liq',tag:'Liquidity · Financing requirement',title:'Find the financing requirement',
+    body:`Average loans are <b>$${loans}m</b>, average core deposits are <b>$${dep}m</b>, and liquid assets are <b>$${liq}m</b>. Find the financing requirement (borrowed funds needed).`,
+    answer:fg+liq,tol:.01,unit:'$ millions',alts:[{v:fg,msg:'That is the financing gap. The requirement adds liquid assets: FG + liquid assets.'},{v:fg-liq,msg:'Add liquid assets, don\'t subtract: requirement = FG + liquid assets.'}],
+    solution:`<ol><li>FG = ${loans} − ${dep} = <b>$${fg}M</b></li><li>Financing requirement = FG + Liquid assets = ${fg} + ${liq}</li><li><b>= $${fg+liq}M</b> (this equals borrowed funds)</li></ol>`};
+}
+function genLI(){
+  if(Math.random()<.6){
+    const hz=pick(['3-day','5-day','10-day']);
+    const cash=rnd(5,15),tb=rnd(10,30),gn=rnd(5,20),ln=rnd(60,120,5);
+    const tbS=Math.min(tb-.5,Math.round(tb*rnd(85,98)/100*2)/2),gnS=Math.min(gn-.5,Math.round(gn*rnd(75,95)/100*2)/2),lnS=Math.min(ln-1,Math.round(ln*rnd(55,85)/100));
+    const rows=[['Cash',cash,cash],['T-bills',tb,tbS],['GNMAs',gn,gnS],['Loans',ln,lnS]];const tot=sum(rows.map(r=>r[1])),I=sum(rows.map(r=>r[2]))/tot;
+    const unw=sum(rows.map(r=>r[2]/r[1]))/4;
+    return {topic:'liq',tag:'Liquidity · Liquidity index',title:`Find the ${hz} liquidity index`,
+      body:`If the DI has to liquidate within ${hz.replace('-day',' days')}, it gets these values ($ millions):<div class="tablewrap"><table class="simpletable"><tr><th>Asset</th><th class="num">Fair value</th><th class="num">${hz} value</th></tr>${rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td></tr>`).join('')}</table></div><p>Round to three decimals.</p>`,
+      answer:I,tol:.002,unit:'index',alts:[{v:unw,msg:'You took a simple average of the price ratios. Weight each ratio by the asset\'s share of total fair value.'}],
+      solution:`<ol><li>Total fair value = ${tot}</li><li>I = ${rows.map(r=>`${r[1]}/${tot} × ${r[2]}/${r[1]}`).join(' + ')}</li><li>Shortcut: total sale value ÷ total fair value = ${f(sum(rows.map(r=>r[2])),1)} / ${tot}</li><li><b>I = ${I.toFixed(3)}</b></li></ol><p class="small">You\'d recover ${(I*100).toFixed(1)}% of fair value in a forced sale.</p>`};
+  }
+  const w=rnd(30,70,5)/100,p1=rnd(97,99.5,.5),p2s=rnd(85,95),p2=rnd(55,p2s-5),I=w*(p1/100)+(1-w)*(p2/p2s);
+  return {topic:'liq',tag:'Liquidity · Liquidity index (Example 12-1 style)',title:'Find the one-month liquidity index',
+    body:`A DI holds <b>${Math.round(w*100)}%</b> one-month T-bills and <b>${Math.round((1-w)*100)}%</b> real estate loans. Selling T-bills today gets <b>$${p1}</b> per $100 vs. $100 at maturity. Selling loans today gets <b>$${p2}</b> per $100 vs. <b>$${p2s}</b> at month-end. Round to three decimals.`,
+    answer:I,tol:.002,unit:'index',alts:[{v:.5*(p1/100)+.5*(p2/p2s),msg:'Use the actual portfolio weights, not 50/50.'},{v:w*(100/p1)+(1-w)*(p2s/p2),msg:'Flip the ratios: fire-sale price ÷ fair price, so each ratio is below 1.'}],
+    solution:`<ol><li>I = w₁(P₁/P₁*) + w₂(P₂/P₂*)</li><li>= ${w.toFixed(2)}(${p1}/100) + ${(1-w).toFixed(2)}(${p2}/${p2s})</li><li>= ${(w*p1/100).toFixed(3)} + ${((1-w)*p2/p2s).toFixed(3)}</li><li><b>I = ${I.toFixed(3)}</b></li></ol>`};
+}
+function genDrain(){
+  let C,S,Ln,E,PF,D,X,m;
+  do{C=rnd(8,15);S=rnd(15,35);Ln=rnd(70,110,5);E=rnd(10,20);PF=rnd(20,45);D=C+S+Ln-E-PF;X=rnd(10,25);m=rnd(3,6)}while(D<X+20||X>(C-m)+S||X<=C-m);
+  const TA=C+S+Ln,cashUse=C-m,secSold=X-cashUse;
+  const q=pick(['pf','taP','sec','taS']);
+  const Q={pf:['Under purchased liquidity management, what are purchased funds after the drain?',PF+X,[{v:PF,msg:'Purchased liquidity means borrowing to replace the lost deposits, so purchased funds rise by the drain.'}]],
+    taP:['Under purchased liquidity management, what are total assets after the drain?',TA,[{v:TA-X,msg:'With purchased liquidity the asset side is preserved. The bank borrows instead of shrinking.'}]],
+    sec:[`Under stored liquidity management (cash can\'t fall below $${m}M), how much in securities is left?`,S-secSold,[{v:S-X,msg:'Use cash first, down to the minimum, then sell securities for the rest.'},{v:S,msg:'Stored liquidity means selling assets. Securities have to cover whatever cash can\'t.'}]],
+    taS:[`Under stored liquidity management (cash can\'t fall below $${m}M), what are total assets after the drain?`,TA-X,[{v:TA,msg:'Stored liquidity uses up assets, so the balance sheet shrinks by the drain.'}]]}[q];
+  const bs=bsTable([['($M)','Amount'],['Cash',C],['Securities',S],['Loans',Ln],['Total assets',TA],['Deposits',D],['Purchased funds',PF],['Equity',E],['Total L + E',TA]]);
+  const sol=bsTable([['($M)','Before','Purchased','Stored'],['Cash',C,C,m],['Securities',S,S,S-secSold],['Loans',Ln,Ln,Ln],['Total assets',TA,TA,TA-X],['Deposits',D,D-X,D-X],['Purchased funds',PF,PF+X,PF],['Equity',E,E,E],['Total L + E',TA,TA,TA-X]]);
+  return {topic:'liq',tag:'Liquidity · Deposit drain',title:`A $${X}M net deposit drain`,body:`${bs}<p>${Q[0]}</p>`,answer:Q[1],tol:.01,unit:'$ millions',alts:Q[2],
+    solution:`${sol}<ol><li><b>Purchased:</b> deposits −${X}, purchased funds +${X}. Assets unchanged.</li><li><b>Stored:</b> use cash ${C} → ${m} (covers ${cashUse}), sell ${secSold} of securities. Assets shrink by ${X}.</li><li><b>Answer: $${Q[1]}M</b></li></ol>`};
+}
+function genLCR(){
+  if(Math.random()<.5){const H=rnd(80,200,5),O=rnd(70,180,5),ans=H/O*100;
+    return {topic:'liq',tag:'Liquidity · LCR',title:'Find the liquidity coverage ratio',body:`A bank holds <b>$${H}M</b> of high-quality liquid assets. Net cash outflows over the next 30 days are projected at <b>$${O}M</b>. Find the LCR as a percent.`,
+      answer:ans,tol:.1,unit:'%',alts:[{v:O/H*100,msg:'Flip it: LCR = HQLA ÷ 30-day net outflows.'}],
+      solution:`<ol><li>LCR = ${H} / ${O} = <b>${f(ans,1)}%</b></li><li>${ans>=100?'At or above 100%: it can cover a 30-day stress on its own. Pass.':'Below 100%: it can\'t cover a 30-day stress on its own. Fail.'}</li></ol>`}}
+  const A=rnd(300,700,10),R=rnd(300,700,10),ans=A/R*100;
+  return {topic:'liq',tag:'Liquidity · NSFR',title:'Find the net stable funding ratio',body:`Available stable funding is <b>$${A}M</b> and required stable funding is <b>$${R}M</b>. Find the NSFR as a percent.`,
+    answer:ans,tol:.1,unit:'%',alts:[{v:R/A*100,msg:'Flip it: NSFR = available ÷ required stable funding.'}],
+    solution:`<ol><li>NSFR = ${A} / ${R} = <b>${f(ans,1)}%</b></li><li>${ans>100?'Above 100%: more funding that\'s "not going anywhere" than the assets require. Good.':'At or below 100%: too much long-term lending funded by money that could leave. Fails the standard.'}</li></ol>`};
+}
+function genBondA(){
+  const c=rnd(4,10)/100,y=rnd(4,12)/100,n=rnd(2,5),P=price(1000,c,y,n),cp=Math.round(1000*c);
+  const terms=[...Array(n)].map((_,i)=>`${i===n-1?cp+1000:cp}/${(1+y).toFixed(2)}^${i+1}`).join(' + ');
+  return {topic:'bond',tag:'Bond pricing · Annual coupons',title:'Price the bond',body:`A <b>${n}-year</b>, $1,000 par bond pays a <b>${Math.round(c*100)}%</b> annual coupon. YTM is <b>${Math.round(y*100)}%</b>. Find the price.`,
+    answer:P,tol:.05,unit:'dollars',alts:[{v:price(1000,c,y,n,2),msg:'That is the semiannual price. This bond pays annually.'}],
+    solution:`<ol><li>Coupon = 1000 × ${c.toFixed(2)} = $${cp}</li><li>Direct entry: ${terms}</li><li>TVM: N=${n}, I%=${Math.round(y*100)}, PMT=${cp}, FV=1000, solve PV</li><li><b>Price = $${f(P,2)}</b> (${c>y?'premium: coupon above yield':c<y?'discount: coupon below yield':'par: coupon equals yield'})</li></ol>`};
+}
+function genBondS(){
+  const c=rnd(4,10)/100,y=rnd(4,12)/100,n=rnd(2,5),P=price(1000,c,y,n,2),cp=1000*c/2;
+  return {topic:'bond',tag:'Bond pricing · Semiannual coupons',title:'Price the semiannual bond',body:`A <b>${n}-year</b>, $1,000 par bond has a <b>${Math.round(c*100)}%</b> annual coupon <b>paid semiannually</b>. The annual yield is <b>${Math.round(y*100)}%</b>. Find the price.`,
+    answer:P,tol:.05,unit:'dollars',alts:[{v:price(1000,c,y,n,1),msg:'That is the annual-coupon price. For semiannual: coupon/2, yield/2, and 2 × years periods.'}],
+    solution:`<ol><li>Per period: coupon = $${f(cp,2)}, rate = ${(y*50).toFixed(1)}%, periods = ${2*n}</li><li>TVM: N=${2*n}, I%=${(y*50).toFixed(1)}, PMT=${f(cp,2)}, FV=1000, solve PV</li><li><b>Price = $${f(P,2)}</b></li></ol>`};
+}
+function genYTM(){
+  const y=rnd(400,1200,25)/1e4,c=rnd(4,10)/100,n=rnd(3,10),P=Math.round(price(1000,c,y,n)*100)/100,cp=Math.round(1000*c);
+  return {topic:'bond',tag:'Bond pricing · Solve for YTM',title:'Find the yield to maturity',body:`A <b>${n}-year</b>, $1,000 par bond with a <b>${Math.round(c*100)}%</b> annual coupon trades at <b>$${f(P,2)}</b>. Find the YTM as a percent (use the TVM Solver).`,
+    answer:y*100,tol:.02,unit:'%',alts:[{v:c*100,msg:'That is the coupon rate. YTM depends on the price: below par means YTM is above the coupon.'}],
+    solution:`<ol><li>TVM: N=${n}, PV=−${f(P,2)}, PMT=${cp}, FV=1000</li><li>Cursor on I%, ALPHA ENTER</li><li><b>YTM = ${f(y*100,2)}%</b></li><li>Sanity check: price ${P>1000?'above par, so YTM < coupon':P<1000?'below par, so YTM > coupon':'at par, so YTM = coupon'}.</li></ol>`};
+}
+function genDurA(){
+  const c=rnd(4,10)/100,y=rnd(4,12)/100,n=rnd(2,4),r=durOf(1000,c,y,n);
+  return {topic:'dur',tag:'Duration · Macaulay, annual',title:'Calculate Macaulay duration',body:`A <b>${n}-year</b>, $1,000 par bond has a <b>${Math.round(c*100)}%</b> annual coupon and a <b>${Math.round(y*100)}%</b> YTM. Find duration in years.`,
+    answer:r.D,tol:.006,unit:'years',alts:[{v:n,msg:'That is the maturity. Duration weights each time by its PV share, so a coupon bond\'s duration is below maturity.'},{v:r.PT/1000,msg:'Divide by the bond\'s price (sum of PVs), not by par.'}],
+    solution:`${rowsTable(r.rows,Math.round(y*100)+'%')}<p>D = ${f(r.PT,2)} / ${f(r.P,2)} = <b>${r.D.toFixed(4)} years</b></p>`};
+}
+function genDurS(){
+  const c=rnd(4,10)/100,y=rnd(4,12)/100,n=rnd(1,3),r=durOf(1000,c,y,n,2);
+  return {topic:'dur',tag:'Duration · Macaulay, semiannual',title:'Calculate duration (semiannual coupons)',body:`A <b>${n}-year</b>, $1,000 par Treasury bond has a <b>${Math.round(c*100)}%</b> annual coupon paid semiannually and a <b>${Math.round(y*100)}%</b> annual yield. Find duration in years.`,
+    answer:r.D,tol:.006,unit:'years',alts:[{v:2*r.D,msg:'That looks like duration in half-year periods. Use t in years (0.5, 1, 1.5, ...) or divide by 2.'},{v:durOf(1000,c,y,n,1).D,msg:'That is the annual-coupon duration. Use semiannual cash flows: coupon/2 discounted at yield/2.'}],
+    solution:`${rowsTable(r.rows,(y*50).toFixed(1)+'% per half-year')}<p>D = ${f(r.PT,2)} / ${f(r.P,2)} = <b>${r.D.toFixed(4)} years</b></p>`};
+}
+function genPriceChg(){
+  const semi=Math.random()<.4,D=rnd(1.5,8,.05),y=rnd(4,12)/100,P=rnd(85000,115000)/100,b=pick([-100,-75,-50,-35,-25,25,35,50,75,100]),dr=b/1e4;
+  const MD=semi?D/(1+y/2):D/(1+y),ans=-MD*dr*P;
+  const alts=[{v:-D*dr*P,msg:`You used Macaulay D directly. Convert first: MD = D ÷ ${semi?'(1 + R/2)':'(1 + R)'}.`}];
+  if(semi)alts.push({v:-(D/(1+y))*dr*P,msg:'Semiannual bond: divide by (1 + R/2), not (1 + R).'});else alts.push({v:-(D/(1+y/2))*dr*P,msg:'Annual bond: divide by (1 + R), not (1 + R/2).'});
+  return {topic:'dur',tag:'Duration · Price change',title:'Estimate the price change',body:`A ${semi?'<b>semiannual</b>-coupon':'annual-coupon'} bond has Macaulay duration <b>${f(D,2)} years</b>, yield <b>${Math.round(y*100)}%</b>, and price <b>$${f(P,2)}</b>. Yields <b>${bpTxt(b)}</b>. Estimate ΔP with duration.`,
+    answer:ans,tol:.05,unit:'dollars',alts,
+    solution:`<ol><li>MD = ${f(D,2)} / ${semi?'(1 + '+(y/2).toFixed(3)+')':'(1 + '+y.toFixed(2)+')'} = ${MD.toFixed(4)}</li><li>ΔP = −MD × ΔR × P = −${MD.toFixed(4)} × ${dec(dr)} × ${f(P,2)}</li><li><b>ΔP ≈ $${sg(ans,2)}</b></li></ol><p class="small">Yields ${b>0?'up, price down':'down, price up'}. Because of convexity, the true change is a bit ${b>0?'smaller in size':'bigger'} than this estimate.</p>`};
+}
+function genDollarDur(){
+  const D=rnd(1.5,8,.05),y=rnd(4,12)/100,P=rnd(85000,115000)/100,MD=D/(1+y),ans=MD*P;
+  return {topic:'dur',tag:'Duration · Dollar duration',title:'Find dollar duration',body:`An annual-coupon bond has Macaulay duration <b>${f(D,2)}</b>, yield <b>${Math.round(y*100)}%</b>, and price <b>$${f(P,2)}</b>. Find its dollar duration.`,
+    answer:ans,tol:.5,unit:'dollars',alts:[{v:D*P,msg:'Dollar duration uses modified duration: MD × Price, where MD = D/(1+R).'}],
+    solution:`<ol><li>MD = ${f(D,2)} / ${(1+y).toFixed(2)} = ${MD.toFixed(4)}</li><li>Dollar duration = MD × P = ${MD.toFixed(4)} × ${f(P,2)} = <b>${f(ans,2)}</b></li><li>So a 1-point (0.01) rate rise ≈ −$${f(ans*.01,2)}.</li></ol>`};
+}
+function genDE(){
+  const A=rnd(500,2000,100),k=rnd(80,95)/100,L=Math.round(A*k),da=rnd(2,7,.25),dl=rnd(.5,4,.25),R=rnd(4,10)/100,b=pick([-100,-75,-50,-25,25,50,75,100]),dr=b/1e4;
+  const kk=L/A,gap=da-kk*dl,rel=Math.random()<.3;
+  const ans=rel?-gap*A*dr:-gap*A*dr/(1+R);
+  const alts=[{v:rel?-(da-dl)*A*dr:-(da-dl)*A*dr/(1+R),msg:'Leverage-adjust: multiply D_L by k = L/A before subtracting.'}];
+  if(rel)alts.push({v:-gap*A*dr/(1+R),msg:'The problem gave the relative change, which is already ΔR/(1+R). Don\'t divide by (1 + R) again.'});else alts.push({v:-gap*A*dr,msg:'Divide ΔR by (1 + R) before multiplying.'});
+  return {topic:'dgap',tag:'Duration gap · Change in equity',title:'Estimate the change in equity',
+    body:`A bank has assets of <b>$${A}m</b> and liabilities of <b>$${L}m</b>. D<sub>A</sub> = <b>${f(da,2)}</b> years and D<sub>L</sub> = <b>${f(dl,2)}</b> years. Current rates are <b>${Math.round(R*100)}%</b>. ${rel?`The <b>relative change</b> in all rates, ΔR/(1+R), is a <b>${b>0?'rise':'fall'} of ${Math.abs(b)} bp</b>.`:`Rates <b>${bpTxt(b)}</b>.`} Find ΔE.`,
+    answer:ans,tol:.01,unit:'$ millions',alts,
+    solution:`<ol><li>k = L/A = ${L}/${A} = ${kk.toFixed(4)}</li><li>DGAP = ${f(da,2)} − ${kk.toFixed(4)}(${f(dl,2)}) = ${gap.toFixed(4)}</li><li>ΔE = −DGAP × A × ${rel?'(relative change)':'ΔR/(1+R)'} = −${gap.toFixed(4)} × ${A} × ${rel?dec(dr):'('+dec(dr)+'/'+(1+R).toFixed(2)+')'}</li><li><b>ΔE = $${sg(ans,3)}m</b></li></ol><p class="small">${gap>0?'Positive':'Negative'} DGAP and rates ${b>0?'rising':'falling'}, so equity ${(gap>0)===(b>0)?'falls':'rises'}.</p>`};
+}
+function genDEUnequal(){
+  const A=rnd(100,1000,50),L=Math.round(A*rnd(85,94)/100),da=rnd(2,7,.25),dl=rnd(.5,4,.25),RA=rnd(5,10)/100,RL=rnd(2,RA*100-1)/100;
+  const sgn=pick([1,-1]),bA=sgn*pick([25,35,50,75,100,150]),bL=sgn*pick([10,25,35,50,75,100]),dA=-da*A*(bA/1e4)/(1+RA),dL=-dl*L*(bL/1e4)/(1+RL),ans=dA-dL;
+  return {topic:'dgap',tag:'Duration gap · Unequal rate changes',title:'Find ΔE when asset and liability rates move differently',
+    body:`A = <b>$${A}m</b> (D<sub>A</sub> = ${f(da,2)}, R<sub>A</sub> = ${Math.round(RA*100)}%), L = <b>$${L}m</b> (D<sub>L</sub> = ${f(dl,2)}, R<sub>L</sub> = ${Math.round(RL*100)}%). Asset rates <b>${bpTxt(bA)}</b> and liability rates <b>${bpTxt(bL)}</b>. Find ΔE.`,
+    answer:ans,tol:.01,unit:'$ millions',alts:[{v:dA+dL,msg:'ΔE = ΔA − ΔL. Subtract the liability change.'}],
+    solution:`<ol><li>ΔA = −${f(da,2)} × ${A} × (${dec(bA/1e4)}/${(1+RA).toFixed(2)}) = ${sg(dA,3)}</li><li>ΔL = −${f(dl,2)} × ${L} × (${dec(bL/1e4)}/${(1+RL).toFixed(2)}) = ${sg(dL,3)}</li><li>ΔE = ΔA − ΔL = ${sg(dA,3)} − (${sg(dL,3)})</li><li><b>ΔE = $${sg(ans,3)}m</b></li></ol><p class="small">Same method as State Bank parts e and f, just with one asset and one liability.</p>`};
+}
+function genImmBS(){
+  const A=rnd(100,2000,50),L=Math.round(A*rnd(80,95)/100),kk=L/A;
+  if(Math.random()<.6){const dl=rnd(.5,5,.25),ans=kk*dl;
+    return {topic:'dgap',tag:'Immunization · Balance sheet',title:'What asset duration sets ΔE = 0?',body:`A = <b>$${A}m</b>, L = <b>$${L}m</b>, D<sub>L</sub> = <b>${f(dl,2)}</b> years. What D<sub>A</sub> immunizes equity value?`,
+      answer:ans,tol:.005,unit:'years',alts:[{v:dl,msg:'D_A = D_L protects the E/A ratio, not equity value. For ΔE = 0 use D_A = k × D_L.'},{v:dl/kk,msg:'Multiply by k = L/A, don\'t divide.'}],
+      solution:`<ol><li>Set D<sub>A</sub> − k·D<sub>L</sub> = 0, so D<sub>A</sub> = k·D<sub>L</sub></li><li>k = ${L}/${A} = ${kk.toFixed(4)}</li><li><b>D<sub>A</sub> = ${kk.toFixed(4)} × ${f(dl,2)} = ${ans.toFixed(4)} years</b></li></ol>`}}
+  const da=rnd(1,6,.25),ans=da/kk;
+  return {topic:'dgap',tag:'Immunization · Balance sheet',title:'What liability duration sets ΔE = 0?',body:`A = <b>$${A}m</b>, L = <b>$${L}m</b>, D<sub>A</sub> = <b>${f(da,2)}</b> years. What D<sub>L</sub> immunizes equity value?`,
+    answer:ans,tol:.005,unit:'years',alts:[{v:da*kk,msg:'Solve for D_L: D_L = D_A / k.'},{v:da,msg:'Leverage-adjust: D_L = D_A / k, which is longer than D_A.'}],
+    solution:`<ol><li>D<sub>A</sub> = k·D<sub>L</sub>, so D<sub>L</sub> = D<sub>A</sub> / k</li><li>k = ${L}/${A} = ${kk.toFixed(4)}</li><li><b>D<sub>L</sub> = ${f(da,2)} / ${kk.toFixed(4)} = ${ans.toFixed(4)} years</b></li></ol>`};
+}
+function genRebal(){
+  const c=rnd(6,10)/100,y=rnd(8,12)/100,d3=durOf(1000,c,y,3),d2=durOf(1000,c,y,2),H=d3.D-1,w=(H-d2.D)/(1-d2.D);
+  return {topic:'dgap',tag:'Immunization · Rebalancing a horizon',title:'How much goes into 1-year zeros?',
+    body:`An FI holds 3-year, <b>${Math.round(c*100)}%</b> annual-coupon bonds yielding <b>${Math.round(y*100)}%</b>, so its portfolio duration is <b>${d3.D.toFixed(4)}</b> years and it\'s immunized for a ${d3.D.toFixed(4)}-year horizon. One year later (yield unchanged), 1-year zero-coupon bonds are available. What percent of the portfolio should move into the zeros to stay immunized?`,
+    answer:w*100,tol:.15,unit:'%',alts:[{v:(1-w)*100,msg:'That is the share left in the coupon bonds. The question asks for the share in zeros.'}],
+    solution:`<ol><li>New horizon H = ${d3.D.toFixed(4)} − 1 = ${H.toFixed(4)} years</li><li>The bonds are now 2-year bonds:</li></ol>${rowsTable(d2.rows,Math.round(y*100)+'%')}<ol start="3"><li>D<sub>bond</sub> = ${d2.D.toFixed(4)} (longer than H, so not immunized)</li><li>H = w(1) + (1 − w)(${d2.D.toFixed(4)})  →  w = (H − D<sub>bond</sub>)/(1 − D<sub>bond</sub>)</li><li><b>w = ${(w*100).toFixed(2)}%</b> in zeros</li></ol>`};
+}
+
+const PRACTICE={
+  repr:{label:'Repricing',gens:[['Unequal rate changes',genUnequal],['Cumulative gap from buckets',genBuckets],['Gap ratio',genGapRatio]]},
+  liq:{label:'Liquidity',gens:[['Financing gap / requirement',genFG],['Liquidity index',genLI],['Deposit drain: purchased vs. stored',genDrain],['LCR / NSFR',genLCR]]},
+  bond:{label:'Bond pricing',gens:[['Annual coupons',genBondA],['Semiannual coupons',genBondS],['Solve for YTM',genYTM]]},
+  dur:{label:'Duration',gens:[['Macaulay, annual',genDurA],['Macaulay, semiannual',genDurS],['Price change with MD',genPriceChg],['Dollar duration',genDollarDur]]},
+  dgap:{label:'Duration gap',gens:[['Change in equity',genDE],['Unequal rate changes',genDEUnequal],['Immunize the balance sheet',genImmBS],['Rebalance with zeros',genRebal]]},
+  mix:{label:'Mixed exam set',gens:[]}
+};
+PRACTICE.mix.gens=Object.entries(PRACTICE).filter(([k])=>k!=='mix').flatMap(([,v])=>v.gens);
+
+function diagnose(p,v){
+  if(near(v,p.answer,p.tol))return {ok:true,msg:'Correct. Your setup is working.'};
+  for(const a of (p.alts||[])){if(Math.abs(a.v-p.answer)>p.tol&&near(v,a.v,Math.max(p.tol,Math.abs(a.v)*.002)))return {ok:false,msg:a.msg}}
+  if(Math.abs(p.answer)>p.tol&&near(v,-p.answer,p.tol))return {ok:false,msg:'Right size, wrong sign. Think about which direction this should move.'};
+  for(const [m,txt] of [[100,'Off by a factor of 100. Check how you entered percents or basis points (50 bp = 0.0050).'],[.01,'Off by a factor of 100. Check how you entered percents or basis points (50 bp = 0.0050).'],[10,'Off by a factor of 10. Check your decimal placement (35 bp = 0.0035, not 0.035).'],[.1,'Off by a factor of 10. Check your decimal placement (35 bp = 0.0035, not 0.035).'],[1000,'Check your units: the answer is in '+p.unit+'.'],[.001,'Check your units: the answer is in '+p.unit+'.'],[1e6,'Check your units: the answer is in '+p.unit+'.']]){
+    const t=m*p.answer;if(Math.abs(p.answer)>1e-9&&near(Math.abs(v),Math.abs(t),Math.max(p.tol*m,Math.abs(t)*.003)))return {ok:false,msg:txt}}
+  return {ok:false,msg:'Not quite. Open the solution and compare your setup line by line.'};
+}
+
+let pCat='repr',pType=-1,cur=null,curAttempted=false;
+function renderPracticeCats(){
+  $('#practiceCats').innerHTML=Object.entries(PRACTICE).map(([k,v])=>`<button class="tabbtn${k===pCat?' active':''}" data-cat="${k}">${v.label}</button>`).join('');
+  $$('#practiceCats .tabbtn').forEach(b=>b.onclick=()=>{pCat=b.dataset.cat;pType=-1;renderPracticeCats();renderTypeSelect();newProblem()});
+}
+function renderTypeSelect(){
+  const g=PRACTICE[pCat].gens;$('#pType').innerHTML=`<option value="-1">Mix all types</option>`+g.map((x,i)=>`<option value="${i}">${x[0]}</option>`).join('');
+  $('#pType').value=String(pType);
+}
+$('#pType').onchange=e=>{pType=+e.target.value;newProblem()};
+function newProblem(){
+  const g=PRACTICE[pCat].gens;const fn=pType<0?pick(g)[1]:g[pType][1];cur=fn();curAttempted=false;
+  $('#practiceHost').innerHTML=`<div class="card"><div class="qtag">${cur.tag}</div><h3>${cur.title}</h3><div>${cur.body}</div>
+  <div class="answerrow"><input id="pAnswer" inputmode="decimal" autocomplete="off" placeholder="Your answer" aria-label="Your answer"><span class="unit">${cur.unit}</span><button class="btn" id="pCheck">Check</button><button class="btn secondary" id="pShow">Show solution</button><button class="btn secondary" id="pNew">New problem</button></div>
+  <div id="pFeedback" class="feedback"></div><div id="pSolution" class="solution">${cur.solution}</div><p class="small" style="margin-bottom:0">First try counts toward your progress. Revealing the solution first counts as a miss.</p></div>`;
+  $('#pCheck').onclick=checkPractice;$('#pNew').onclick=newProblem;
+  $('#pShow').onclick=()=>{const s=$('#pSolution');s.classList.toggle('show');if(!curAttempted){curAttempted=true;record(cur.topic,false)}};
+  $('#pAnswer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkPractice()}});
+}
+function checkPractice(){
+  const fb=$('#pFeedback'),v=parseNum($('#pAnswer').value);
+  if(Number.isNaN(v)){fb.className='feedback neutral';fb.textContent='Enter a number, like -4.95 or 2.777.';return}
+  const r=diagnose(cur,v);fb.className='feedback '+(r.ok?'good':'bad');fb.textContent=r.msg;
+  if(!curAttempted){curAttempted=true;record(cur.topic,r.ok)}
+}
+renderPracticeCats();renderTypeSelect();newProblem();
+
+/* ---------- State Bank: classification + part e ---------- */
+const SB_A=[['Cash',31,0,0,'n'],['Fed funds (2.05%, 0.02)',150,.02,.0205,'6'],['3-month T-bills (3.25%, 0.22)',200,.22,.0325,'6'],['8-year T-bonds (6.50%, 7.55)',250,7.55,.065,'n'],['5-year munis (7.20%, 4.25)',50,4.25,.072,'n'],['6-month consumer loans (5%, 0.42)',250,.42,.05,'6'],['5-year car loans (6%, 3.78)',350,3.78,.06,'n'],['7-month C&I loans (4.8%, 0.55)',200,.55,.048,'1'],['2-year C&I loans (4.15%, 1.65)',275,1.65,.0415,'n'],['Fixed-rate mortgages, maturing in 5 months (5.10%, 0.48)',450,.48,.051,'6'],['Fixed-rate mortgages, maturing in 1 year (6.85%, 0.85)',300,.85,.0685,'1'],['Fixed-rate mortgages, maturing in 5 years (5.30%, 4.45)',275,4.45,.053,'n'],['Fixed-rate mortgages, maturing in 20 years (5.40%, 18.25)',355,18.25,.054,'n'],['Premises and equipment',20,0,0,'n']];
+const SB_L=[['Demand deposits',253,0,0,'n'],['Savings accounts (0.5%, 1.25)',50,1.25,.005,'6'],['MMDAs, no minimum balance (3.5%, 0.50)',460,.5,.035,'6'],['3-month CDs (3.2%, 0.20)',175,.2,.032,'6'],['1-year CDs (3.5%, 0.95)',375,.95,.035,'1'],['5-year CDs (5%, 4.85)',350,4.85,.05,'n'],['Fed funds (2%, 0.02)',225,.02,.02,'6'],['Repos (2%, 0.05)',290,.05,.02,'6'],['6-month commercial paper (4.05%, 0.55)',300,.55,.0405,'6'],['Subordinated notes, 1-year fixed (5.55%, 0.92)',200,.92,.0555,'1'],['Subordinated debt, 7-year fixed (6.25%, 6.65)',100,6.65,.0625,'n']];
+(function(){
+  const opts=`<option value="">Choose...</option><option value="6">Within 6 months</option><option value="1">6 to 12 months</option><option value="n">Not rate sensitive (1 yr+)</option>`;
+  const rows=[['Assets',SB_A],['Liabilities',SB_L]].map(([h,arr],s)=>`<tr><th>${h}</th><th class="num">$M</th><th>Reprices</th></tr>`+arr.map((r,i)=>`<tr data-ans="${r[4]}"><td>${r[0]}</td><td class="num">${r[1]}</td><td><select aria-label="Repricing for ${r[0]}">${opts}</select></td></tr>`).join('')).join('');
+  $('#classifyTable').innerHTML=rows;
+  $('#classifyCheck').onclick=()=>{let ok=0,tot=0;$$('#classifyTable tr[data-ans]').forEach(tr=>{tot++;const v=tr.querySelector('select').value;tr.classList.remove('ok','no');if(v){tr.classList.add(v===tr.dataset.ans?'ok':'no')}if(v===tr.dataset.ans)ok++});$('#classifyScore').textContent=`${ok} / ${tot} correct`};
+  $('#classifyShow').onclick=()=>{$$('#classifyTable tr[data-ans]').forEach(tr=>{tr.querySelector('select').value=tr.dataset.ans;tr.classList.remove('no');tr.classList.add('ok')});$('#classifyScore').textContent='Answers filled in'};
+  const line=(r,dR)=>{const d=-r[2]*dR/(1+r[3])*r[1]*1e6;return {name:r[0],amt:r[1],D:r[2],R:r[3],d}};
+  const la=SB_A.filter(r=>r[2]>0).map(r=>line(r,-.0035)),ll=SB_L.filter(r=>r[2]>0).map(r=>line(r,-.005));
+  const ta=sum(la.map(x=>x.d)),tl=sum(ll.map(x=>x.d));
+  const tr=x=>`<tr><td>${x.name}</td><td class="num">${x.amt}</td><td class="num">${f(x.D,2)}</td><td class="num">${f(x.R*100,2)}%</td><td class="num">$${f(x.d,0)}</td></tr>`;
+  $('#stateBankE').innerHTML=`<tr><th>Asset (ΔR = −0.0035)</th><th class="num">$M</th><th class="num">D</th><th class="num">R</th><th class="num">ΔMV</th></tr>${la.map(tr).join('')}<tr class="total"><td colspan="4">ΔMVA</td><td class="num">$${f(ta,0)}</td></tr><tr><th>Liability (ΔR = −0.0050)</th><th class="num">$M</th><th class="num">D</th><th class="num">R</th><th class="num">ΔMV</th></tr>${ll.map(tr).join('')}<tr class="total"><td colspan="4">ΔMVL</td><td class="num">$${f(tl,0)}</td></tr>`;
+})();
+
+/* ---------- convexity chart ---------- */
+(function(){
+  const cf=[...Array(10)].map((_,i)=>i===9?1080:80);
+  const P=y=>sum(cf.map((c,i)=>c/Math.pow(1+y,i+1)));
+  const P0=P(.06),D=sum(cf.map((c,i)=>(i+1)*c/Math.pow(1.06,i+1)))/P0,MD=D/1.06,est=y=>P0-MD*P0*(y-.06);
+  const W=700,H=330,l=62,r=20,t=20,b=46,x0=.01,x1=.12,y0=700,y1=1750;
+  const X=y=>l+(y-x0)/(x1-x0)*(W-l-r),Y=p=>t+(y1-p)/(y1-y0)*(H-t-b);
+  let s='';
+  for(let p=800;p<=1700;p+=100)s+=`<line x1="${l}" x2="${W-r}" y1="${Y(p)}" y2="${Y(p)}" stroke="#e3e8ef"/><text x="${l-8}" y="${Y(p)+4}" font-size="11" text-anchor="end" fill="#5b6474">${f(p,0)}</text>`;
+  for(let yv=.02;yv<=.12001;yv+=.02)s+=`<text x="${X(yv)}" y="${H-b+18}" font-size="11" text-anchor="middle" fill="#5b6474">${Math.round(yv*100)}%</text>`;
+  s+=`<text x="${(l+W-r)/2}" y="${H-8}" font-size="12" text-anchor="middle" fill="#20242a">Yield</text><text x="14" y="${(t+H-b)/2}" font-size="12" text-anchor="middle" fill="#20242a" transform="rotate(-90 14 ${(t+H-b)/2})">Price ($)</text>`;
+  const pts=[];for(let y=x0;y<=x1+1e-9;y+=.0025)pts.push(`${X(y).toFixed(1)},${Y(P(y)).toFixed(1)}`);
+  s+=`<line x1="${X(.02)}" y1="${Y(est(.02))}" x2="${X(.11)}" y2="${Y(est(.11))}" stroke="#9e1b32" stroke-width="2" stroke-dasharray="6 5"/>`;
+  s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="#17365d" stroke-width="3"/>`;
+  s+=`<circle cx="${X(.06)}" cy="${Y(P0)}" r="5" fill="#17365d"/><text x="${X(.06)+9}" y="${Y(P0)-8}" font-size="12" fill="#17365d">6%: $${f(P0,2)}</text>`;
+  s+=`<rect x="${W-r-210}" y="${t+4}" width="206" height="44" rx="6" fill="#fff" stroke="#d8dee8"/><line x1="${W-r-198}" x2="${W-r-172}" y1="${t+19}" y2="${t+19}" stroke="#17365d" stroke-width="3"/><text x="${W-r-166}" y="${t+23}" font-size="12" fill="#20242a">Actual price</text><line x1="${W-r-198}" x2="${W-r-172}" y1="${t+37}" y2="${t+37}" stroke="#9e1b32" stroke-width="2" stroke-dasharray="6 5"/><text x="${W-r-166}" y="${t+41}" font-size="12" fill="#20242a">Duration estimate</text>`;
+  $('#convexChart').innerHTML=s;
+  const rows=[.04,.05,.07,.08].map(y=>`<tr><td>6% → ${Math.round(y*100)}%</td><td class="num">$${f(P(y),2)}</td><td class="num">${sg(P(y)-P0,2)}</td><td class="num">${sg(est(y)-P0,2)}</td><td>${y<.06?'Duration understates the gain':'Duration overstates the loss'}</td></tr>`).join('');
+  $('#convexTable').innerHTML=`<tr><th>Yield move</th><th class="num">Actual price</th><th class="num">Actual change</th><th class="num">Duration estimate</th><th>Takeaway</th></tr>${rows}`;
+  $('#convexChart').dataset.d=D.toFixed(4);
+})();
+
+/* ---------- concepts ---------- */
+const CONCEPTS=[
+ ['risk','Why does a rate change affect equity even if no cash flows change?','Value = PV(cash flows). Assets and liabilities have different durations, so a rate change moves their present values by different amounts. Since E = A − L, equity changes.'],
+ ['risk','Why can\'t an FI just match asset and liability maturities to remove interest rate risk?','It\'s inconsistent with asset transformation: banks earn the spread by funding long-term loans with short-term deposits. Also, matching maturities isn\'t enough anyway. You\'d have to match durations.'],
+ ['risk','Firm-specific vs. systematic credit risk?','Firm-specific: default risk from one borrower\'s own situation, which diversification reduces. Systematic: default risk from economy-wide conditions like a recession, which diversification can\'t remove.'],
+ ['risk','How can off-balance-sheet activity change an FI\'s net worth? (Table 7-4)','Contingent assets and liabilities don\'t show on the balance sheet. Valuing them (CA = 50, CL = 55) cuts net worth from 10 to 5, because the contingent liabilities are bigger.'],
+ ['risk','FinTech risk vs. technology risk?','Technology risk is your own systems failing (part of operational risk). FinTech risk is broader: outside firms like SoFi, Transferwise, or Credit Karma taking your customers and revenue.'],
+ ['risk','Why is sovereign risk treated as a type of credit risk, and why is it harder to manage?','The borrower may be willing and able to pay, but its government blocks repayment. There\'s usually no court recourse, and the FI\'s main bargaining chip is its future supply of loans.'],
+ ['liq','Why can a liquidity problem become a solvency problem?','Forced sales of illiquid assets happen at fire-sale prices. Those realized losses eat into capital, so a cash problem becomes an equity problem. This contributed to SVB\'s failure in 2023.'],
+ ['liq','Purchased vs. stored liquidity management: what happens to the balance sheet and income?','Purchased: borrow (fed funds, repos). Assets stay the same size, but funding costs more, so net income falls. Stored: use cash and sell securities. Assets shrink, and holding extra liquid assets means fewer loans and less spread income.'],
+ ['liq','What does the financing gap tell you?','How much of the loan book isn\'t funded by core deposits, so how much borrowing you need. FG + liquid assets = borrowed funds (the financing requirement).'],
+ ['liq','LCR vs. NSFR: what does each ask, and what\'s the cutoff?','LCR: can the bank cover 30 days of stressed net outflows with its own high-quality liquid assets? Needs ≥ 100%. NSFR: of all liabilities and equity, how much is stable ("not going anywhere") compared to what the assets require? Needs > 100%. Above 1 is good; below 1 means too much reliance on funding that could leave.'],
+ ['liq','In the problem set, the 3-day liquidity index is 0.738 and the 10-day is 0.835. What does that mean?','A 3-day forced sale recovers 73.8% of fair value; waiting 10 days recovers 83.5%. The faster you have to sell, the bigger the fire-sale discount and the higher the liquidity risk.'],
+ ['liq','Using Table 12-7, which bank has more liquidity exposure?','It depends on the ratio. BOA has much higher core deposits to assets (78.83% vs. 30.66%), so its funding is more stable. But BOA is higher on loans to deposits, loans to assets, and unused commitments, so it has more asset-side exposure. Name the ratio you\'re using.'],
+ ['liq','Why does a liquidity plan list fund providers individually?','They behave differently in a crisis: mutual and pension funds pull money faster than correspondent banks and small businesses. Knowing who leaves first lets the bank size withdrawals by horizon and plan the order of asset sales.'],
+ ['liq','Why do bank runs feed on themselves, and what\'s the downside of preventing them?','Demand deposits are first come, first served, so fear that others will withdraw first makes everyone withdraw. Deposit insurance and the discount window reduce runs but may encourage banks to take more liquidity risk.'],
+ ['repr','What is refinancing risk vs. reinvestment risk?','Refinancing: liabilities reprice or mature before assets, so rising rates raise funding costs while asset income stays fixed. Reinvestment: assets mature first, so falling rates force reinvesting at lower yields while funding costs stay fixed.'],
+ ['repr','State Bank part (c): the gap is negative and rates rise, yet ΔNII = 0. Why?','Gap effect: negative gap + rising rates pushes NII down. Spread effect: asset rates rose 50 bp vs. 35 bp for liabilities, which pushes NII up. Here 1,050 × .005 = 1,500 × .0035 = 5.25, so they exactly cancel.'],
+ ['repr','Should demand deposits count as rate-sensitive liabilities?','Against: explicit rate is zero, rates don\'t track the market, and they act as core deposits. For: they pay implicit interest through unpriced services, and depositors may move money (runoff) when rates rise. Class default: exclude them.'],
+ ['repr','What are the main weaknesses of the repricing model?','It ignores market value effects, over-aggregates within buckets, ignores runoffs of "rate-insensitive" loans (which reprice as they\'re paid down and relent), and leaves out off-balance-sheet hedges.'],
+ ['dur','Why is duration better than maturity for measuring interest rate risk?','Duration accounts for the timing and present-value weight of every cash flow, not just the last one. Two bonds with the same maturity can have very different rate sensitivity.'],
+ ['dur','Why does a higher yield shorten duration?','A higher yield discounts every cash flow more, and the later ones get hit hardest. They count for less in the weighted average, so the average time shrinks.'],
+ ['dur','What is convexity and why does it matter?','The price-yield curve bends, but duration is a straight-line estimate. So duration overstates losses when rates rise and understates gains when rates fall. For the 10-year 8% bond at 6%, a drop to 4% actually gains about $177 while duration predicts about $161.'],
+ ['dgap','Why did the 2.777-year portfolio need rebalancing after one year?','The horizon fell by a full year (to 1.777), but the bond\'s duration only fell to 1.925. Duration falls less than one year per year, so the FI has to shorten it, for example by moving 15.92% into 1-year zeros.'],
+ ['dgap','Why is the immunization condition D_A = k·D_L instead of D_A = D_L?','Liabilities are smaller than assets (k = L/A &lt; 1), so the same rate change moves fewer dollars of liabilities. D_A = k·D_L sets ΔE = 0. D_A = D_L only protects the E/A ratio.'],
+ ['dgap','What three things drive ΔE in the duration gap formula?','The leverage-adjusted duration gap [D_A − k·D_L], the size of the FI (A), and the size of the rate shock ΔR/(1+R).']
+];
+let cFilter='all';const conceptDone={};
+function renderConcepts(){
+  const cats=[['all','All'],...Object.entries(TOPICS).filter(([k])=>k!=='bond')];
+  $('#conceptFilter').innerHTML=cats.map(([k,n])=>`<button class="tabbtn${k===cFilter?' active':''}" data-cf="${k}">${n}</button>`).join('');
+  $$('#conceptFilter .tabbtn').forEach(b=>b.onclick=()=>{cFilter=b.dataset.cf;renderConcepts()});
+  $('#conceptHost').innerHTML=CONCEPTS.map((c,i)=>({c,i})).filter(({c})=>cFilter==='all'||c[0]===cFilter).map(({c,i})=>`<div class="card"><div class="qtag">${TOPICS[c[0]]}</div><h3>${c[1]}</h3><button class="btn secondary small" data-creveal="${i}">Reveal answer</button><div class="solution" id="csol${i}">${c[2]}<div class="answerrow"><span class="small">Did you have it?</span><button class="btn small" data-cgrade="${i}" data-ok="1">I had it</button><button class="btn secondary small" data-cgrade="${i}" data-ok="0">Need review</button><span class="small" id="cmsg${i}">${conceptDone[i]?'Recorded':''}</span></div></div></div>`).join('');
+  $$('[data-creveal]').forEach(b=>b.onclick=()=>{$('#csol'+b.dataset.creveal).classList.toggle('show')});
+  $$('[data-cgrade]').forEach(b=>b.onclick=()=>{const i=+b.dataset.cgrade;if(conceptDone[i]){$('#cmsg'+i).textContent='Already recorded';return}conceptDone[i]=true;record(CONCEPTS[i][0],b.dataset.ok==='1');$('#cmsg'+i).textContent='Recorded'});
+}
+renderConcepts();
+
+/* ---------- quiz ---------- */
+const QUIZ=[
+ {topic:'risk',t:'mc',q:'Interest rate risk results mainly from:',c:['A mismatch in asset and liability maturities','Borrowers failing to repay','Foreign governments blocking payments','Failed internal processes'],a:0,e:'Interest rate risk comes from maturity (and duration) mismatch between assets and liabilities.'},
+ {topic:'risk',t:'mc',q:'Country or sovereign risk is best described as:',c:['A type of credit risk where a foreign government interferes with repayment','Market risk from trading foreign currencies','The risk FinTech firms take customers','A type of operational risk'],a:0,e:'It\'s a type of credit risk, often with no court recourse. The FI\'s bargaining chip is future loan supply.'},
+ {topic:'risk',t:'mc',q:'In Table 7-4, valuing off-balance-sheet items cut net worth from $10 to $5. Why?',c:['Contingent liabilities (55) exceeded contingent assets (50)','On-balance-sheet assets fell to 95','Deposits rose by 5','Equity was paid out as dividends'],a:0,e:'E = (100 + 50) − (90 + 55) = 5.'},
+ {topic:'risk',t:'mc',q:'The London Whale and the 2013 Target hack are examples of:',c:['Technology and operational risk','Sovereign risk','Liquidity risk','FinTech risk'],a:0,e:'Losses from failed processes, people, and systems, or external events.'},
+ {topic:'risk',t:'mc',q:'Which risk can be reduced by diversifying across many borrowers?',c:['Firm-specific credit risk','Systematic credit risk','Sovereign risk','Interest rate risk'],a:0,e:'Firm-specific risk diversifies away. Systematic credit risk comes from economy-wide conditions and doesn\'t.'},
+ {topic:'risk',t:'mc',q:'Fully hedging FX exposure by matching foreign assets and liabilities requires matching:',c:['Durations, not just maturities','Only the currencies','Only face values','Nothing else'],a:0,e:'Otherwise foreign interest rate risk remains (see Ch. 9).'},
+ {topic:'risk',t:'mc',q:'Insolvency risk is:',c:['Insufficient capital to absorb a sudden drop in asset value relative to liabilities','The risk depositors withdraw at once','Losses from trading positions','Risk from contingent liabilities'],a:0,e:'It\'s usually the end result of excessive interest rate, credit, market, liquidity, or other risks.'},
+ {topic:'liq',t:'mc',q:'Which is purchased liquidity management?',c:['Borrowing in the repo market','Selling T-bills','Holding excess reserves','Reducing loan commitments'],a:0,e:'Purchased liquidity means raising funds on the liability side: fed funds or repos.'},
+ {topic:'liq',t:'mc',q:'Why can stored liquidity be costly even if no crisis occurs?',c:['Liquid assets earn less than loans','It always raises credit losses','It forces more borrowing','It automatically raises duration'],a:0,e:'Excess cash and liquid securities sacrifice the spread the bank could earn on loans.'},
+ {topic:'liq',t:'num',q:'Loans = $95M and deposits = $75M. Find the financing gap in $ millions.',a:20,tol:.01,e:'FG = 95 − 75 = $20M (the problem set).'},
+ {topic:'liq',t:'num',q:'FG = $20M and liquid assets = $26M. Find the financing requirement in $ millions.',a:46,tol:.01,e:'Financing requirement = FG + liquid assets = 20 + 26 = $46M.'},
+ {topic:'liq',t:'num',q:'Fair values: cash 9, T-bills 16, GNMAs 10, loans 95. 3-day sale values: 9, 14, 8, 65. Find the 3-day liquidity index (3 decimals).',a:.7385,tol:.002,e:'I = (9 + 14 + 8 + 65)/130 = 96/130 = 0.738.'},
+ {topic:'liq',t:'mc',q:'A $5M loan commitment is drawn and the bank funds it with stored liquidity. Total assets:',c:['Stay the same (cash down 5, loans up 5)','Rise by $5M','Fall by $5M','Rise by $10M'],a:0,e:'Under purchased liquidity they\'d rise by 5. Under stored they stay the same.'},
+ {topic:'liq',t:'mc',q:'An NSFR of 0.90 means:',c:['Too little stable funding relative to what the assets require','Enough liquid assets for a 30-day stress','The bank passes the standard','Loans exceed deposits by 10%'],a:0,e:'NSFR needs to be above 1. Below 1 means too much long-term lending funded by money that could leave.'},
+ {topic:'liq',t:'mc',q:'Core deposits to total assets: Northern Trust 30.66%, BOA 78.83%. On that ratio alone:',c:['BOA has less liability-side liquidity risk','Northern Trust has less liability-side risk','They have equal risk','The ratio says nothing about liquidity'],a:0,e:'Stickier core funding means less risk of a sudden drain. BOA looks worse on the other three ratios, though.'},
+ {topic:'liq',t:'mc',q:'Deposit insurance and the discount window reduce bank runs. What\'s the downside?',c:['Banks may take on more liquidity risk','They cause bank panics','They raise reserve requirements','They lower deposit rates to zero'],a:0,e:'Protection isn\'t free: it may encourage banks to increase liquidity risk.'},
+ {topic:'repr',t:'mc',q:'A bank has a positive cumulative gap. If rates rise equally on RSAs and RSLs, NII:',c:['Rises','Falls','Doesn\'t change','Becomes negative'],a:0,e:'More assets than liabilities reprice, so interest income rises more than interest expense.'},
+ {topic:'repr',t:'mc',q:'Which model measures the book-value effect of rate changes on net interest income?',c:['Repricing model','Duration gap model','Liquidity index','Convexity'],a:0,e:'The repricing (funding gap) model is a book-value cash flow model of NII.'},
+ {topic:'repr',t:'num',q:'RSA = $900M, RSL = $1,100M, and all rates rise 1%. Find ΔNII in $ millions.',a:-2,tol:.01,e:'GAP = −200. ΔNII = −200 × .01 = −$2M.'},
+ {topic:'repr',t:'num',q:'State Bank: 6-month RSAs = $1,050M and RSLs = $1,500M. RSA rates rise 50 bp and RSL rates rise 35 bp. Find ΔNII in $ millions.',a:0,tol:.01,e:'1,050(.005) − 1,500(.0035) = 5.25 − 5.25 = 0. Gap and spread effects cancel.'},
+ {topic:'repr',t:'num',q:'State Bank\'s 1-year CGAP is −$525M and total assets are $3,156M. Find the gap ratio in %.',a:-16.635,tol:.05,e:'−525 / 3,156 = −16.64%.'},
+ {topic:'repr',t:'mc',q:'Demand deposits are usually left out of RSLs because:',c:['Their explicit rate is zero and doesn\'t move with market rates','They reprice daily','They count as equity','Regulators prohibit it'],a:0,e:'They act as core deposits. The case for including them is implicit interest and runoff risk.'},
+ {topic:'repr',t:'mc',q:'With a 6-month planning period, a 7-month C&I loan is:',c:['Not rate sensitive (but it is in the 1-year gap)','Rate sensitive','Rate sensitive only if it\'s variable-rate','A liability'],a:0,e:'It reprices in month 7, outside a 6-month window but inside 1 year.'},
+ {topic:'repr',t:'mc',q:'Short-term liabilities fund long-term fixed-rate assets, and rates rise. The main risk is:',c:['Refinancing risk','Reinvestment risk','Country risk','Operational risk'],a:0,e:'The liabilities must be rolled over at higher rates while asset income stays fixed.'},
+ {topic:'repr',t:'mc',q:'Which is a weakness of the repricing model?',c:['It ignores market value effects','It uses market values too much','It can\'t compute NII','It requires convexity'],a:0,e:'It\'s a book-value model, so market value changes are missed.'},
+ {topic:'bond',t:'mc',q:'A bond\'s coupon rate is below its YTM. It trades:',c:['At a discount (below par)','At a premium (above par)','At par','At zero'],a:0,e:'Investors pay less than par to make up for the below-market coupon.'},
+ {topic:'bond',t:'num',q:'2-year, $1,000 bond, 8% coupon paid semiannually, 12% annual yield. Find the price.',a:930.70,tol:.05,e:'N = 4, I% = 6, PMT = 40, FV = 1000 → $930.70.'},
+ {topic:'bond',t:'num',q:'3-year, $1,000 bond, 8% annual coupon, 10% YTM. Find the price.',a:950.26,tol:.05,e:'80/1.1 + 80/1.1² + 1080/1.1³ = $950.26.'},
+ {topic:'dur',t:'mc',q:'For a zero-coupon bond, Macaulay duration is:',c:['Equal to maturity','Zero','Half the maturity','Greater than maturity'],a:0,e:'All the PV weight sits at maturity.'},
+ {topic:'dur',t:'mc',q:'When yield rises, duration:',c:['Falls','Rises','Stays the same','Equals maturity'],a:0,e:'Higher yield discounts later cash flows the most, shrinking their weights.'},
+ {topic:'dur',t:'num',q:'D = 4.4 years and the yield is 10% (annual). Find modified duration.',a:4,tol:.01,e:'MD = 4.4 / 1.10 = 4.00.'},
+ {topic:'dur',t:'num',q:'MD = 4.0, price = $950, rates rise 50 bp. Estimate ΔP in dollars.',a:-19,tol:.15,e:'ΔP = −4 × .005 × 950 = −$19.'},
+ {topic:'dur',t:'num',q:'3-year, 8% annual coupon bond at a 10% YTM. Find its duration in years.',a:2.7774,tol:.005,e:'2,639.22 / 950.26 = 2.777 years.'},
+ {topic:'dur',t:'mc',q:'For a large drop in rates, duration\'s estimate of the price gain is:',c:['Too small','Too big','Exact','Zero'],a:0,e:'Convexity: the true price rises more than the straight-line estimate.'},
+ {topic:'dgap',t:'num',q:'A = $100M, L = $90M, D_A = 5, D_L = 3. Find the leverage-adjusted duration gap.',a:2.3,tol:.01,e:'k = 0.9. DGAP = 5 − 0.9(3) = 2.3 years.'},
+ {topic:'dgap',t:'num',q:'DGAP = 2.3, A = $100M, R = 10%, rates rise 1%. Estimate ΔE in $ millions.',a:-2.0909,tol:.02,e:'ΔE = −2.3 × 100 × (.01/1.10) = −$2.09M.'},
+ {topic:'dgap',t:'mc',q:'To set ΔE = 0 with the duration gap model:',c:['D_A = k·D_L','D_A = D_L','A = L','DGAP = 1'],a:0,e:'Liabilities are smaller than assets, so duration must be leverage-adjusted.'},
+ {topic:'dgap',t:'mc',q:'A problem gives the relative change in rates as −50 bp. What do you use for ΔR/(1+R)?',c:['−0.0050','−0.0050 / (1 + R)','−0.50','+0.0050'],a:0,e:'"Relative change" is already ΔR/(1+R). State Bank part g: −2.81939 × 3,156 × (−0.005) = +$44.49M.'},
+ {topic:'dgap',t:'mc',q:'A portfolio is immunized today. A year later, with rates unchanged, it is:',c:['No longer immunized: duration fell less than the horizon did','Still immunized','Immunized only if rates rose','Immunized only for zero-coupon bonds'],a:0,e:'2.777 → 1.925 for duration vs. 2.777 → 1.777 for the horizon, so you must rebalance.'},
+ {topic:'dgap',t:'num',q:'State Bank: D_A = 3.9012, D_L = 1.2290, A = 3,156, L = 2,778. Find DGAP.',a:2.8194,tol:.005,e:'3.9012 − (2,778/3,156)(1.2290) = 2.8194 years.'}
+];
+let quiz=[],qi=0,score=0,answered=false,missed=[],qByTopic={};
+function prepQ(q){if(q.t!=='mc')return {...q};const order=shuffle(q.c.map((_,i)=>i));return {...q,c:order.map(i=>q.c[i]),a:order.indexOf(q.a)}}
+function buildQuiz(){const by={};QUIZ.forEach((q,i)=>(by[q.topic]=by[q.topic]||[]).push(i));let picks=[];Object.values(by).forEach(arr=>picks.push(...shuffle(arr).slice(0,2)));const rest=shuffle(QUIZ.map((_,i)=>i).filter(i=>!picks.includes(i)));picks=picks.concat(rest.slice(0,15-picks.length));return shuffle(picks).map(i=>prepQ(QUIZ[i]))}
+function startQuiz(list){quiz=list||buildQuiz();qi=0;score=0;missed=[];qByTopic={};renderQuiz()}
+function renderQuiz(){
+  $('#quizProgress').style.width=`${(qi/quiz.length)*100}%`;
+  if(qi>=quiz.length){
+    const topicRows=Object.entries(qByTopic).map(([k,v])=>`<tr><td>${TOPICS[k]}</td><td class="num">${v.r} / ${v.t}</td></tr>`).join('');
+    $('#quizHost').innerHTML=`<h3>Quiz complete</h3><div class="stat">${score} / ${quiz.length}</div><p>${score>=13?'Strong shape. Focus on speed and clean calculator entries.':score>=10?'Solid base. Review what you missed, then run it again.':'Go back through Learn and the problem sets for your weakest topic, then retake.'}</p><div class="tablewrap"><table class="simpletable"><tr><th>Topic</th><th class="num">Correct</th></tr>${topicRows}</table></div>${missed.length?`<h4>What you missed</h4><ol>${missed.map(m=>`<li><b>${m.q}</b><br><span class="small">${m.e}</span></li>`).join('')}</ol>`:''}<div class="answerrow">${missed.length?'<button class="btn" id="retryMissed">Retry missed</button>':''}<button class="btn secondary" id="newQuiz">New 15-question mix</button></div>`;
+    $('#scoreBox').textContent=`Final: ${score} / ${quiz.length}`;
+    const rm=$('#retryMissed');if(rm)rm.onclick=()=>startQuiz(shuffle(missed.map(m=>prepQ(QUIZ.find(x=>x.q===m.q)))));
+    $('#newQuiz').onclick=()=>startQuiz();return;
+  }
+  const q=quiz[qi];answered=false;$('#scoreBox').textContent=`Score: ${score} / ${qi}`;
+  const input=q.t==='mc'?q.c.map((c,i)=>`<label class="choice"><input type="radio" name="quizChoice" value="${i}">${c}</label>`).join(''):`<div class="answerrow"><input id="quizNum" inputmode="decimal" autocomplete="off" placeholder="Numeric answer" aria-label="Numeric answer"></div>`;
+  $('#quizHost').innerHTML=`<div class="qtag">Question ${qi+1} of ${quiz.length} · ${TOPICS[q.topic]}</div><h3>${q.q}</h3>${input}<div class="answerrow"><button class="btn" id="quizSubmit">Submit</button><button id="nextBtn" class="btn secondary hidden">Next</button></div><div id="quizFeedback" class="feedback"></div>`;
+  $('#quizSubmit').onclick=submitQuiz;$('#nextBtn').onclick=()=>{qi++;renderQuiz()};
+  const ni=$('#quizNum');if(ni)ni.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();answered?$('#nextBtn').click():submitQuiz()}});
+}
+function submitQuiz(){
+  if(answered)return;const q=quiz[qi],fb=$('#quizFeedback');let ok=false;
+  if(q.t==='mc'){const c=document.querySelector('input[name=quizChoice]:checked');if(!c){fb.className='feedback neutral';fb.textContent='Choose an answer first.';return}ok=+c.value===q.a;
+    $$('.choice').forEach((l,i)=>{if(i===q.a)l.classList.add('right');else if(+c.value===i)l.classList.add('wrong')})}
+  else{const v=parseNum($('#quizNum').value);if(Number.isNaN(v)){fb.className='feedback neutral';fb.textContent='Enter a number first.';return}ok=near(v,q.a,q.tol)}
+  answered=true;if(ok)score++;else missed.push({q:q.q,e:q.e});
+  const t=qByTopic[q.topic]||{r:0,t:0};t.t++;if(ok)t.r++;qByTopic[q.topic]=t;record(q.topic,ok);
+  fb.className='feedback '+(ok?'good':'bad');fb.innerHTML=(ok?'<strong>Correct.</strong> ':'<strong>Not quite.</strong> ')+q.e;
+  $('#nextBtn').classList.remove('hidden');$('#nextBtn').focus();$('#scoreBox').textContent=`Score: ${score} / ${qi+1}`;
+}
+startQuiz();
+
+/* ---------- index card copy ---------- */
+$('#copyCard').onclick=async()=>{
+  const txt=['#cardFront','#cardBack'].map(id=>{const el=$(id);return [...el.children].map(c=>c.tagName==='UL'?[...c.children].map(li=>'- '+li.textContent).join('\n'):c.textContent.toUpperCase()).join('\n')}).join('\n\n');
+  try{await navigator.clipboard.writeText(txt);$('#copyMsg').textContent='Copied.'}catch(e){$('#copyMsg').textContent='Copy blocked by the browser. Select the text and copy it manually.'}
+};
+</script>
+</body>
+</html>
